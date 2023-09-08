@@ -96,6 +96,7 @@ div.button-area{
     background-color: #001;
     color: white;
     font-size: 1.35em;
+    cursor: pointer;
 }
 .options-area{
     display: flex;
