@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Oswald:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+button{
+    cursor: pointer;
+}
+
+.forms-header {
+    display: flex;
+    justify-content: center;
+}
+
+.forms-header h1 {
+    font-size: 4em;
+
+
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.forms-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 30em;
+    gap: 1em;
+    margin-top: 1em;
+    width: 50%;
+}
+.inputs-area{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+    gap: 1em;
+}
+
+.email-input-area{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.5em;
+}
+.name-input-area{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.5em;
+}
+.password-input-area{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.5em;
+}
+div.passsword-isEquals{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.5em;
+}
+
+.forms-body input{
+    width: 100%;
+    height: 2.5em;
+    border: 1px solid #001;
+    border-radius: 0.5em;
+    padding: 1em;
+
+}
+div.button-area{
+    width: 50%;
+}
+
+.forms-body input#btn {
+    margin-top: 1em;
+    width: 100%;
+    height: 2em;
+    padding: 0;
+    background-color: #001;
+    color: white;
+    font-size: 1.35em;
+}
+.options-area{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5em;
+}
