@@ -6,12 +6,20 @@
     box-sizing: border-box;
     font-family: 'Inter', sans-serif;
 }
-a{
+
+a {
     text-decoration: none;
     color: inherit;
 }
-button{
+
+button {
     cursor: pointer;
+}
+
+ul,
+ol,
+li {
+    list-style: none;
 }
 
 .forms-header {
@@ -25,7 +33,7 @@ button{
 
 }
 
-form{
+form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -43,40 +51,8 @@ form{
     margin-top: 1em;
     width: 50%;
 }
-.inputs-area{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    width: 50%;
-    gap: 1em;
-}
 
-.email-input-area{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: 0.5em;
-}
-.name-input-area{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: 0.5em;
-}
-.password-input-area{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: 0.5em;
-}
-div.passsword-isEquals{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: 0.5em;
-}
-
-.forms-body input{
+div input {
     width: 100%;
     height: 2.5em;
     border: 1px solid #001;
@@ -84,7 +60,64 @@ div.passsword-isEquals{
     padding: 1em;
 
 }
-div.button-area{
+
+.forms-body input:focus {
+    outline: 0;
+
+}
+
+
+.inputs-area {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+    gap: 1em;
+}
+
+.email-input-area {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.5em;
+}
+
+.name-input-area {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.5em;
+}
+
+.password-input-area {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.5em;
+}
+
+div.passsword-isEquals {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.5em;
+}
+
+.valid {
+    border: 2px solid rgba(44, 255, 44, 0.718);
+
+    color: red;
+}
+
+.invalid {
+    border: 2px solid rgba(204, 10, 10, 0.73);
+}
+
+span.span-required {
+    display: none;
+}
+
+div.button-area {
     width: 50%;
 }
 
@@ -98,7 +131,8 @@ div.button-area{
     font-size: 1.35em;
     cursor: pointer;
 }
-.options-area{
+
+.options-area {
     display: flex;
     flex-direction: column;
     align-items: center;
