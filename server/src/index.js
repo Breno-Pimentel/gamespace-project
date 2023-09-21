@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 require("dotenv").config({ override: true });
-const startDatabase = require("./config/database");
+const startDatabase = require("./database/database");
 
 //middlewares - faz referencias a funcoes que são passads antes da rota
 app.use(express.json());
