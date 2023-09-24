@@ -15,5 +15,3 @@ app.use(require("./routes/routes"));
 app.listen(process.env.PORT);
 console.log("listening on port 3000");
 console.log("Server is running ok");
-
-

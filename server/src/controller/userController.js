@@ -19,9 +19,17 @@ const getUsers = async (request, res) => {
 //Método para pegar um usuário do banco de ddados a partir do seu id
 const getUserByID = async (request, res) => {
   const id = request.params.id;
-  const response = await pool.query("SELECT * FROM users WHERE id = $1", [id]);
+  const response = await pool.query(
+    "SELECT id,name,email FROM users WHERE id = $1 ",
+    [id]
+  );
+  //Validação da existência do usúario
+  if (response.rowCount === 0) {
+    return res.status(404).json({ msg: "Usuário não encotrado" });
+  }
   res.json(response.rows);
 };
+
 //Método para criar um usuário e escreve-lo no banco de dados
 const createUser = async (request, res) => {
   const { name, email, password } = request.body;
@@ -77,73 +85,6 @@ const updateUser = async (request, res) => {
   );
   res.json("User updated successfully");
 };
-const loginUser = async (request, res) => {
-  const { email, password } = request.body;
-
-  //Validações
-  if (!email) {
-    return res.status(422).json({ msg: "Complete corretamente o email" });
-  }
-  if (!password) {
-    return res.status(422).json({ msg: "Complete corretamente a senha" });
-  }
-  //Checar se o usuário existe
-  const user = await pool.query("SELECT * FROM users WHERE email = $1;", [
-    email,
-  ]);
-  if (user.rows.length === 0) {
-    return res.status(404).json({ msg: "Usuário não encontrado" });
-  }
-  //checar se a senha combina com a senha do banco
-  const checkPassword = async () => {
-    //Pegando senha do banco de dados
-    const getPasswordQuery = await pool.query(
-      "SELECT password FROM users WHERE email = $1;",
-      [email]
-    );
-    //Atribuindo e filtrando a resposta do query
-    const getPassword = getPasswordQuery.rows[0].password;
-    //Checando se a senha do banco é igual a senha criptografada
-    const checkPassword = await bcrypt.compare(password, getPassword);
-    //Validação (Senha inválida)
-    if (!checkPassword) {
-      return res.status(404).json({ msg: "Senha inválida" });
-    }
-    try {
-      const getIdQuery = await pool.query(
-        "SELECT id from users WHERE email = $1",
-        [email]
-      );
-      const getId = getIdQuery.rows;
-      console.log(getId);
-      const secret = process.env.SECRET;
-      const token = jwt.sign(
-        {
-          id: getId,
-        },
-        secret
-      );
-      res
-        .status(200)
-        .json({ msg: "Autenticação realizada com sucesso", token });
-    } catch (error) {
-      console.log(error);
-
-      res.status(500).json({ msg: "Aconteceu um erro no servidor" });
-    }
-  };
-  checkPassword();
-};
-const checkToken = (req, response, next) => {
-  const authHeader = req.headers["Authorization"];
-  //Busca no header se existe a autorização e caso exista ele faz um split no array trazendo apenas o token
-  const token = authHeader && authHeader.split(" ")[1];
-  console.log;
-
-  if (!token) {
-    return response.status(401).json({ msg: "Acesso negado" });
-  }
-};
 
 //exportando os métodos para fora do arquivo
 module.exports = {
@@ -152,6 +93,4 @@ module.exports = {
   createUser,
   deleteUser,
   updateUser,
-  loginUser,
-  checkToken,
 };

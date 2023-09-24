@@ -1,5 +1,5 @@
 //Importando classes
-const { Pool, Client } = require("pg");
+const { Pool } = require("pg");
 const path = require("path");
 require("dotenv").config({ debug: true });
 
@@ -15,13 +15,13 @@ const pool = new Pool({
 //Scripts do banco de dados
 const createDbScript = "CREATE DATABASE db_login_system";
 const createTBScript = `CREATE TABLE IF NOT EXISTS "users" (
-    "id" SERIAL PRIMARY KEY,
-    "name" VARCHAR(55) NOT NULL,
+    "id" UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    "name" VARCHAR(100) NOT NULL,
     "email" VARCHAR(55) UNIQUE NOT NULL,
     "password" VARCHAR(100) NOT NULL
 );`;
 
-//Função que cria o banco de daddos e a tabela do projeto(Utilizando verficações de existencia);
+//Função que cria o banco de dados e a tabela do projeto(Utilizando verficações de existencia);
 const startDatabase = async () => {
   //Try(tente executar isso) e catch(Caso não funcione retorne um erro) da função
   try {

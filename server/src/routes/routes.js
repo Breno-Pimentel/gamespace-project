@@ -9,20 +9,20 @@ const {
   getUserByID,
   deleteUser,
   updateUser,
-  loginUser,
-  checkToken,
 } = require("../controller/userController");
+const checkToken = require("../middlewares/auth.middleware");
+const loginUser = require("../controller/LoginController");
 
 //Rotas Públicas
 router.get("/users", getUsers);
 router.post("/auth/register", createUser);
-router.get("/users/:id", getUserByID);
+// router.get("/users/:id", getUserByID);
 router.delete("/users/:id", deleteUser);
 router.put("/users/:id", updateUser);
 router.post("/auth/login", loginUser);
 
 //Rotas Privadas
-router.get("/user/:id", checkToken); //Falta o metodo de busca por id
+router.get("/user/:id", checkToken, getUserByID); //Falta o metodo de busca por id
 
 //Exportando o metodo router para fora do arquivo
 module.exports = router;
