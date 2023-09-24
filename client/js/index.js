@@ -16,36 +16,25 @@ const spans = document.querySelectorAll(".span-required");
 btn.addEventListener("click", function (e) {
   e.preventDefault();
 
-  function isPasswordTheSame() {
-    if (passwordInput.value === passwordConfirm.value) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-  isPasswordTheSame();
   //Instanciando a clase formData
   const formaData = new FormData(registerForm);
 
   //trasnforma tudo em um objeto(JSON)
   const data = Object.fromEntries(formaData);
 
-  if (isPasswordTheSame() === true) {
-    //Constante que armazena a função assincrona de fetch
-    const fetchAPI = async () => {
-      const result = await fetch("http://localhost:3000/users", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      })
-        .then((response) => response.json())
-        .then((data) => console.log(data));
-    };
-    fetchAPI();
-  } else {
-    
-  }
+  //Constante que armazena a função assincrona de fetch
+  const fetchAPI = async () => {
+    const result = await fetch("http://localhost:3000/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data));
+  };
+  fetchAPI();
+
   //Execução do Fetch(Busca)
 });
