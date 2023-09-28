@@ -1,10 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Oswald:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Oswald:wght@300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 a {
@@ -22,122 +23,11 @@ li {
     list-style: none;
 }
 
-.forms-header {
-    display: flex;
-    justify-content: center;
-}
-
-.forms-header h1 {
-    font-size: 4em;
 
 
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100vw;
-    height: 100vh;
-}
-
-.forms-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 30em;
-    gap: 1em;
-    margin-top: 1em;
-    width: 50%;
-}
-
-div input {
-    width: 100%;
-    height: 2.5em;
-    border: 1px solid #001;
-    border-radius: 0.5em;
-    padding: 1em;
-
-}
-
-.forms-body input:focus {
-    outline: 0;
-
-}
-
-
-.inputs-area {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    width: 50%;
-    gap: 1em;
-}
-
-.email-input-area {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: 0.5em;
-}
-
-.name-input-area {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: 0.5em;
-}
-
-.password-input-area {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: 0.5em;
-}
-
-div.passsword-isEquals {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: 0.5em;
-}
-
-.valid {
-    border: 2px solid rgba(44, 255, 44, 0.718);
-
-    color: red;
-}
-
-.invalid {
-    border: 2px solid rgba(204, 10, 10, 0.73);
-}
-
-span.span-required {
-    display: none;
-}
-
-div.button-area {
-    width: 50%;
-}
-
-.forms-body input#btn {
-    margin-top: 1em;
-    width: 100%;
-    height: 2em;
-    padding: 0;
-    background-color: #001;
-    color: white;
-    font-size: 1.35em;
-    cursor: pointer;
-}
-
-.options-area {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5em;
-}
+/* ###################################### */
+/*INDEX*/
+/* ###################################### */
 
 header#navigation-header {
     display: flex;
@@ -147,7 +37,8 @@ header#navigation-header {
     position: absolute;
     width: 100%;
 }
-img#logo{
+
+img#logo {
     width: 20em;
 }
 
@@ -168,4 +59,341 @@ main#main-content {
     background-repeat: no-repeat;
     background-size: contain;
     background-color: yellow;
+}
+
+/* ###################################### */
+/*LOGIN*/
+/* ###################################### */
+.wrapper {
+    display: flex;
+    width: 100%;
+}
+
+aside {
+    background-color: #15181D;
+    width: 367px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main {
+    background-color: #FFFAFA;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+label {
+    color: #5A5A5A;
+    font-size: 21px;
+    margin: 0 0 8px 0;
+}
+
+input {
+    border-radius: 10px;
+    font-size: 20px;
+    border: none;
+    background-color: #F3EBEB;
+}
+
+img.logo {
+    width: 223px;
+    height: 160px;
+    margin: 127px 0 37px 0;
+}
+
+div.welcome-area {
+    margin-bottom: 54px;
+    color: #fff;
+    font: bold;
+}
+
+div.welcome-area h1 {
+    width: 150px;
+}
+
+p.subtitle {
+    font-weight: lighter;
+    font-size: 14px;
+    width: 200px;
+}
+
+a.btn {
+    width: 228px;
+    height: 66px;
+    border: 2px solid #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: 700;
+
+}
+
+
+div.login-area-header {
+    margin: 66px 0 37px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.back-to {
+    display: none;
+}
+
+.logo-mobile {
+    display: none;
+    ;
+}
+
+div.login-area-header h1 {
+
+    font-family: 'Audiowide', cursive;
+    font-weight: 300;
+}
+
+div.login-area-header p {
+    color: #A5A5A5;
+}
+
+
+
+.email-area {
+    display: flex;
+    flex-direction: column;
+}
+
+.email-area input {
+    padding-left: 105px;
+    width: 540px;
+    height: 67px;
+
+}
+
+.email-area #email:focus {
+    border: 1px solid red;
+}
+
+div.input-icon {
+    position: relative;
+    bottom: 43px;
+    left: 42px;
+    width: 18px;
+    height: 18px;
+}
+
+.password-area {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.password-area input {
+    padding-left: 105px;
+    width: 540px;
+    height: 67px;
+
+}
+
+
+.checkbox-stayConnected-area {
+    display: flex;
+    align-items: center;
+    width: 525px;
+    color: #5A5A5A;
+}
+
+input#stayConnected {
+    width: 18px;
+    height: 18px;
+    margin: 0 4px 0 0;
+    background-color: #5A5A5A;
+}
+
+input#login-btn {
+    width: 253px;
+    height: 56px;
+    background-color: #001;
+    color: #fff;
+    font-weight: 700;
+}
+
+
+
+
+input::placeholder {
+    color: #5A5A5A;
+}
+
+.register-area-button {
+    display: none;
+}
+
+/* ###################################### */
+/*MEDIA QUERYS - BREAKPOINT */
+/* ###################################### */
+
+@media (max-width: 830px) {
+    img.logo {
+        width: 180px;
+        height: 130px;
+        margin: 127px 0 37px 0;
+    }
+
+    div.welcome-area {
+        margin: 0 0 37px 30px;
+    }
+
+    a.btn {
+        width: 170px;
+    }
+
+    div.login-area-header h1 {
+        font-size: 20px;
+    }
+
+    div.login-area-header p {
+        color: #A5A5A5;
+    }
+
+    .email-area input {
+        width: 300px;
+
+    }
+
+    .email-area label {
+        font-size: 14px;
+    }
+
+
+    .password-area label {
+        font-size: 14px;
+    }
+
+    .password-area input {
+        width: 300px;
+
+    }
+
+    .checkbox-stayConnected-area {
+        width: 300px;
+    }
+}
+
+@media (max-width: 578px) {
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    aside {
+        display: none;
+    }
+
+    div.login-area-header {
+        margin: 33px 0 29px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .back-to {
+        display: block;
+        position: absolute;
+        left: 20px;
+        top: 20px;
+    }
+
+    .logo-mobile {
+        display: block;
+        margin: 0 0 18px 0;
+        width: 150px;
+    }
+
+    form {
+        gap: 0;
+    }
+
+    .email-area label {
+        font-size: 18px;
+    }
+
+    .email-area input {
+        width: 285px;
+        height: 49px;
+        padding-left: 53px;
+        font-size: 15px;
+    }
+
+    div.input-icon {
+        bottom: 34.5px;
+        left: 17px;
+        width: 16px;
+        height: 15px;
+    }
+
+    .password-area label {
+        font-size: 18px;
+        display: none;
+    }
+
+    .password-area input {
+        width: 285px;
+        height: 49px;
+        padding-left: 53px;
+        font-size: 15px;
+    }
+
+    .checkbox-stayConnected-area {
+        width: 270px;
+        margin: 0 0 30px 0;
+
+    }
+
+    form #login-btn {
+        width: 146px;
+        height: 41px;
+    }
+
+    .register-area-button {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 17px;
+        padding: 0 0 20px 0;
+    }
+
+    .line {
+        width: 290px;
+        height: 2px;
+        background-color: #D9D9D9;
+        margin: 23px 0 0 0;
+    }
+
+    #register-btn-redirect {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 146px;
+        height: 41px;
+        border-radius: 10px;
+        background-color: #001;
+        color: #fff;
+        font-weight: 700;
+    }
 }
