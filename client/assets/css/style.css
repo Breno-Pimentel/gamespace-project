@@ -80,8 +80,8 @@ aside {
 
 main {
     background-color: #FFFAFA;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -179,8 +179,8 @@ div.login-area-header p {
 
 .email-area input {
     padding-left: 105px;
-    width: 540px;
-    height: 67px;
+    width: 599px;
+    height: 73px;
 
 }
 
@@ -204,8 +204,8 @@ div.input-icon {
 
 .password-area input {
     padding-left: 105px;
-    width: 540px;
-    height: 67px;
+    width: 599px;
+    height: 73px;
 
 }
 
@@ -243,11 +243,79 @@ input::placeholder {
     display: none;
 }
 
+/* ##################################### */
+/*REGISTER
+/*######################################*/
+.register-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#register-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+}
+
+.register-area-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 40px 0 40px 0;
+}
+
+.register-area-header h1 {
+    font-size: 34px;
+
+}
+
+.register-area-header p {
+    color: #A5A5A5;
+    font-size: 20px;
+    padding-bottom: 5px;
+}
+
+.name-area {
+    display: flex;
+    flex-direction: column;
+}
+
+.name-area input {
+    padding-left: 105px;
+    width: 599px;
+    height: 73px;
+}
+
+.password-area-check {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.password-area-check input {
+    padding-left: 105px;
+    width: 599px;
+    height: 73px;
+}
+
+#register-btn {
+    width: 253px;
+    height: 56px;
+    background-color: #001;
+    color: #fff;
+    font-weight: 700;
+}
+
 /* ###################################### */
 /*MEDIA QUERYS - BREAKPOINT */
 /* ###################################### */
 
-@media (max-width: 830px) {
+@media (max-width: 860px) {
+
+    /* LOGIN */
     img.logo {
         width: 180px;
         height: 130px;
@@ -292,9 +360,32 @@ input::placeholder {
     .checkbox-stayConnected-area {
         width: 300px;
     }
+
+    /* REGISTER */
+
+
+    div.register-area-header {
+        margin: 33px 0 16px 0;
+    }
+
+    .name-area input {
+        padding-left: 105px;
+        width: 300px;
+        height: 73px;
+    }
+
+
+
+    .password-area-check input {
+        padding-left: 105px;
+        width: 300px;
+        height: 73px;
+    }
 }
 
 @media (max-width: 578px) {
+
+    /* REGISTER */
     .wrapper {
         display: flex;
         flex-direction: column;
@@ -303,6 +394,15 @@ input::placeholder {
 
     aside {
         display: none;
+    }
+
+    main {
+        background-color: #FFFAFA;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: normal;
     }
 
     div.login-area-header {
@@ -396,4 +496,37 @@ input::placeholder {
         color: #fff;
         font-weight: 700;
     }
+
+    /* REGISTER */
+    #register-form {
+        gap: 0;
+    }
+
+    div.register-area-header {
+        margin: 33px 0 16px 0;
+    }
+
+    .name-area input {
+        padding-left: 53px;
+        font-size: 15px;
+        width: 285px;
+        height: 49px;
+    }
+
+
+
+    .password-area-check input {
+        padding-left: 53px;
+        font-size: 15px;
+        width: 285px;
+        height: 49px;
+    }
+
+    form #register-btn {
+        width: 146px;
+        height: 41px;
+        margin: 0 0 20px 0;
+        font-size: 16px;
+    }
+
 }
