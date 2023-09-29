@@ -13,7 +13,7 @@ a {
     color: inherit;
 }
 
-button {
+button, input[type="button"], input[type="reset"], input[type="submit"]{
     cursor: pointer;
 }
 
@@ -67,6 +67,7 @@ main#main-content {
 .wrapper {
     display: flex;
     width: 100%;
+    background-color: #FFFAFA;
 }
 
 aside {
@@ -113,13 +114,13 @@ img.logo {
     margin: 127px 0 37px 0;
 }
 
-div.welcome-area {
+div.welcome-login-area {
     margin-bottom: 54px;
     color: #fff;
     font: bold;
 }
 
-div.welcome-area h1 {
+div.welcome-login-area h1 {
     width: 150px;
 }
 
@@ -246,6 +247,24 @@ input::placeholder {
 /* ##################################### */
 /*REGISTER
 /*######################################*/
+div.welcome-register-area {
+    margin-bottom: 54px;
+    color: #fff;
+    font: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+div.welcome-register-area h1 {
+    width: 177px;
+    text-align: center;
+}
+div.welcome-register-area p{
+    text-align: center;
+}
+
+
 .register-area {
     display: flex;
     flex-direction: column;
