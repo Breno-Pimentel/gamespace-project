@@ -1,13 +1,14 @@
 const { Pool } = require("pg");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+require("dotenv").config({ debug: true });
 
 const pool = new Pool({
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  host: process.env.DB_HOST,
-  port: process.env.DB_PORT,
-  database: process.env.DB_MAIN_NAME,
+  user: process.env.USER,
+  password: process.env.PASSWORD,
+  host: process.env.HOST,
+  port: process.env.PORT,
+  database: process.env.DATABASE2,
 });
 const loginUser = async (request, res) => {
   const { email, password } = request.body;
@@ -46,15 +47,10 @@ const loginUser = async (request, res) => {
         "SELECT id from users WHERE email = $1",
         [email]
       );
-      const getId = getIdQuery.rows.id;
+      const getId = getIdQuery.rows[0].id;
 
       const secret = process.env.SECRET;
-      const token = jwt.sign(
-        {
-          id: getId,
-        },
-        secret
-      );
+      const token = jwt.sign({ id: getId }, secret);
       res
         .status(200)
         .json({ msg: "Autenticação realizada com sucesso", token });

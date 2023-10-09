@@ -1,11 +1,12 @@
 //##################################
 //            Variáveis
 //##################################
-const btn = document.getElementById("btn");
+const btn = document.getElementById("register-btn");
 const registerForm = document.getElementById("register-form");
-const emailInput = document.querySelector(".email-user-input");
-const passwordInput = document.querySelector("#password-user-input");
-const passwordConfirm = document.querySelector("#passsword-isEquals");
+const nameInput = document.getElementById("name");
+const emailInput = document.getElementById("email");
+const passwordInput = document.getElementById("password");
+const passwordConfirm = document.getElementById("#passsword-isEquals");
 const spans = document.querySelectorAll(".span-required");
 
 //##################################
@@ -16,15 +17,14 @@ const spans = document.querySelectorAll(".span-required");
 btn.addEventListener("click", function (e) {
   e.preventDefault();
 
-  //Instanciando a clase formData
-  const formaData = new FormData(registerForm);
-
-  //trasnforma tudo em um objeto(JSON)
-  const data = Object.fromEntries(formaData);
-
+  const data = {
+    email: emailInput.value,
+    name: nameInput.value,
+    password: passwordInput.value,
+  };
   //Constante que armazena a função assincrona de fetch
   const fetchAPI = async () => {
-    const result = await fetch("http://localhost:3000/users", {
+    const result = await fetch("http://localhost:3000/auth/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

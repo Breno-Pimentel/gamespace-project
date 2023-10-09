@@ -6,7 +6,12 @@ Logo após baixar o repositorio do projeto, abra-o no vscode e execute os seguin
  5. Na pasta controller, altere as configurações do banco de dados do pool
  6. No arquivo routes, troque o caminho de export das funções - require('caminho relativo do arquivo controller')
  7. Entre na pasta server e incie o servidor escrevendo o seguinte comando no terminal:
-    ´npm run dev´
+    a. npm run dev
 8. Rode o html abrindo o arquivo no navegador ou use a extensão Live Server
 9. Cadastre o usuário
 
+```
+git status
+git add
+git commit
+``
