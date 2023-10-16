@@ -10,7 +10,8 @@ const checkToken = (req, response, next) => {
     return response.status(401).json({ msg: "Acesso negado" });
   }
   try {
-    const secret = process.env.SECRET;
+    const secret =
+      "HDLOIUYBFRCXZ12343HUIOBASCBKPL2IOKJOJI5J6L6790451964UISACBHY$#";
 
     jwt.verify(token, secret);
 
@@ -18,6 +19,7 @@ const checkToken = (req, response, next) => {
   } catch (error) {
     response.status(400).json({ msg: "Token inválido" });
   }
+  
 };
 
 module.exports = checkToken;

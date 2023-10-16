@@ -49,8 +49,14 @@ const loginUser = async (request, res) => {
       );
       const getId = getIdQuery.rows[0].id;
 
-      const secret = process.env.SECRET;
-      const token = jwt.sign({ id: getId }, secret);
+      const getEmailQuery = await pool.query(
+        "SELECT email FROM users WHERE id = $1",
+        [getId]
+      );
+      const getEmail = getEmailQuery.rows[0].email;
+      const secret =
+        "HDLOIUYBFRCXZ12343HUIOBASCBKPL2IOKJOJI5J6L6790451964UISACBHY$#";
+      const token = jwt.sign({ id: getId, email: getEmail }, secret);
       res
         .status(200)
         .json({ msg: "Autenticação realizada com sucesso", token });
