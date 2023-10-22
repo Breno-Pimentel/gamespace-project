@@ -4,16 +4,93 @@
     <meta charset="UTF-8" />
     <title>Dashboard</title>
     <link rel="stylesheet" href="./assets/css/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
     <div class="container">
+      <div class="add-game-modal">
+        <div class="exit">
+          <img src="./assets/imgs/close.svg" alt="" class="exit-logo" />
+        </div>
+        <form action="" class="add-game-form">
+          <input type="file" name="image" id="image-game-file" />
+          <select
+            name="Plataforma"
+            id="plataform"
+            class="selector-game-options"
+          >
+            <option value="Default">Selecione uma opção</option>
+            <option value="Xbox">Xbox</option>
+            <option value="Playstation">Playstation</option>
+            <option value="Windows">Windows</option>
+            <option value="MacOS">MacOS</option>
+            <option value="Linux">Linux</option>
+          </select>
+          <select name="Genero" id="gendre" class="selector-game-options">
+            <option value="Default">Selecione uma opção</option>
+            <option value="Xbox">Xbox</option>
+            <option value="Playstation">Playstation</option>
+            <option value="Windows">Windows</option>
+            <option value="MacOS">MacOS</option>
+            <option value="Linux">Linux</option>
+          </select>
+          <select name="Lancamento" id="release" class="selector-game-options">
+            <option value="Default">Selecione uma opção</option>
+            <option value="Xbox">Xbox</option>
+            <option value="Playstation">Playstation</option>
+            <option value="Windows">Windows</option>
+            <option value="MacOS">MacOS</option>
+            <option value="Linux">Linux</option>
+          </select>
+          <select name="idioma" id="language" class="selector-game-options">
+            <option value="Default">Selecione uma opção</option>
+            <option value="Xbox">Xbox</option>
+            <option value="Playstation">Playstation</option>
+            <option value="Windows">Windows</option>
+            <option value="MacOS">MacOS</option>
+            <option value="Linux">Linux</option>
+          </select>
+          <select name="Recurso" id="resource" class="selector-game-options">
+            <option value="Default">Selecione uma opção</option>
+            <option value="Xbox">Xbox</option>
+            <option value="Playstation">Playstation</option>
+            <option value="Windows">Windows</option>
+            <option value="MacOS">MacOS</option>
+            <option value="Linux">Linux</option>
+          </select>
+          <select name="Status" id="status" class="selector-game-options">
+            <option value="Default">Selecione uma opção</option>
+            <option value="Xbox">Xbox</option>
+            <option value="Playstation">Playstation</option>
+            <option value="Windows">Windows</option>
+            <option value="MacOS">MacOS</option>
+            <option value="Linux">Linux</option>
+          </select>
+          <input type="button" name="" id="createGame" value="Criar" />
+        </form>
+      </div>
       <header class="dashboard-header">
-        <div class="logo"><img src="./assets/imgs/logo.svg" alt="" /></div>
-        <div class="search-bar"></div>
+        <div class="logo">
+          <img src="./assets/imgs/logo.svg" alt="" class="desktop-logo" />
+          <img
+            src="./assets/imgs/logo-mobile-2.svg"
+            alt=""
+            class="logo-mobile"
+          />
+        </div>
+        <div class="search-bar">
+          <input type="search" name="Search" id="search-bar" />
+        </div>
+        <div class="search-mobile-way">
+          <img src="./assets/imgs/Search.svg" alt="" />
+        </div>
         <div class="profile">
           <span class="profile-logo"></span>
           <p class="welcome"></p>
           <span class="more-options-logo"></span>
+        </div>
+        <div class="profile-mobile-way">
+          <img src="./assets/imgs/User.svg" alt="" />
         </div>
       </header>
       <div class="dashboard-content">
@@ -42,6 +119,8 @@
             <div class="game"></div>
             <div class="game"></div>
             <div class="game"></div>
+            <div class="game"></div>
+            <div class="game"></div>
           </div>
         </div>
         <div class="carousel-bar">
@@ -53,6 +132,9 @@
             <img src="./assets/imgs/right-arrow.svg" alt="" />
           </div>
           <div class="games-bar">
+            <div class="game"></div>
+            <div class="game"></div>
+            <div class="game"></div>
             <div class="game"></div>
             <div class="game"></div>
             <div class="game"></div>
@@ -90,6 +172,9 @@
             <div class="game"></div>
             <div class="game"></div>
             <div class="game"></div>
+            <div class="game"></div>
+            <div class="game"></div>
+            <div class="game"></div>
           </div>
         </div>
         <div class="recently-added">
@@ -102,5 +187,6 @@
       </div>
       <footer><p>Todos os direitos reservados</p></footer>
     </div>
+    <script src="./js/dashborad.js"></script>
   </body>
 </html>

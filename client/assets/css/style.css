@@ -335,16 +335,95 @@ div.welcome-register-area p {
 /* ###################################### */
 /* Dashboard ############################ */
 /* ###################################### */
+@keyframes entry {
+    0% {
+        opacity: 0;
+        transform: scale(1.4);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.add-game-modal {
+    position: absolute;
+    background-color: white;
+    width: 400px;
+    height: 600px;
+    left: 500px;
+    top: 120px;
+    border-radius: 20px;
+    display: none;
+    animation: entry 0.5s ease 0s 1 normal forwards;
+}
+
+
+
+.exit {
+    position: absolute;
+    cursor: pointer;
+    width: 40px;
+    right: 10px;
+    top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.exit-logo {
+    width: 100%;
+}
+
+.add-game-form {
+    background-color: #001;
+    display: flex;
+    align-items: start;
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+    padding-left: 10px;
+}
+
+
+
+.selector-game-options {
+    width: 300px;
+    height: 40px;
+    border-radius: 10px;
+    font-size: 20px;
+    border: none;
+    background-color: #F3EBEB;
+    padding: 2px 2px 2px 5px;
+    color: #5A5A5A;
+    font-size: 16px;
+}
+
+#image-game-file {
+    margin-top: 10px;
+    width: 170px;
+    height: 120px;
+    background-color: #fff;
+}
+
+#createGame {
+    width: 50%;
+    background-color: #151554;
+    color: #fff;
+}
 
 .container {
     background-color: #15181D;
     color: #f5f5f5;
+    position: relative;
 }
 
 header.dashboard-header {
     display: flex;
-    gap: 6em;
     align-items: center;
+    justify-content: space-around;
 }
 
 .logo {
@@ -354,25 +433,35 @@ header.dashboard-header {
 
 }
 
+.logo-mobile {
+    display: none;
+
+}
+
 .logo img {
     width: 300px;
 }
 
-.search-bar {
-    background-color: #f5f5f5;
-    width: 600px;
-    height: 51px;
-    border-radius: 20px;
-    margin-top: 19px;
+#search-bar {
+    width: 300px;
+    height: 45px;
 }
+
+.search-mobile-way {
+    display: none;
+}
+
 
 .profile {
     background-color: #fff;
     width: 200px;
     height: 51px;
     border-radius: 20px;
-    margin-top: 19px;
 
+}
+
+.profile-mobile-way {
+    display: none;
 }
 
 div.first-content {
@@ -436,16 +525,31 @@ div.right-arrow {
 }
 
 div.games-bar {
+    max-height: 300px;
     display: flex;
-    gap: 3em;
-    justify-content: center;
-    align-items: center;
+    overflow-x: auto;
+    gap: 1rem;
+    padding: 10px 10px 10px 10px;
+    overflow-y: hidden;
 }
 
 div.game {
-    width: 160px;
-    height: 260px;
     background-color: #5A5A5A;
+    min-width: 200px;
+    height: 280px;
+    line-height: 110px;
+}
+
+/*Scrollbar*/
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    background-color: #15181D;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ffff;
+    border-radius: 10px;
 }
 
 div.poster-apresentation {
@@ -582,6 +686,40 @@ footer p {
         width: 300px;
         height: 73px;
     }
+
+    /*DASHBOARD*/
+    header.dashboard-header {
+        gap: 0;
+        justify-content: space-between;
+    }
+
+    #search-bar {
+        width: 90%;
+        height: 45px;
+    }
+
+    #search-bar {
+        width: 230px;
+        height: 40px;
+    }
+
+
+    .profile {
+        display: none;
+
+    }
+
+    .add-game-modal {
+        left: 170px;
+    }
+
+    .profile-mobile-way {
+        display: block;
+        display: flex;
+        align-items: center;
+        margin-right: 10px;
+    }
+
 }
 
 @media (max-width: 578px) {
@@ -730,4 +868,115 @@ footer p {
         font-size: 16px;
     }
 
+    /*Dashboard*/
+    header.dashboard-header {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        gap: 0;
+        justify-content: space-between;
+    }
+
+    .logo {
+        margin: 0;
+        display: flex;
+        align-items: center;
+
+    }
+
+    .logo img.logo-mobile {
+        display: block;
+        width: 100px;
+        height: 100px;
+    }
+
+    .logo img.desktop-logo {
+        display: none;
+        width: 200px;
+    }
+
+    #search-bar {
+        width: 90%;
+        height: 40px;
+    }
+
+
+    .profile {
+        display: none;
+
+    }
+
+    .profile-mobile-way {
+        display: block;
+        display: flex;
+        align-items: center;
+        margin-right: 10px;
+    }
+
+    div.first-content {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        gap: 2em;
+        margin: 20px 0 90px 0;
+        justify-content: center;
+    }
+
+    button#add-game {
+        width: 280px;
+        height: 56px;
+    }
+
+    button#favorite {
+        width: 280px;
+        height: 56px;
+    }
+
+    div.apresentation-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 28px 0 0 0;
+    }
+
+    div.game-infos {
+        width: 280px;
+        height: 450px;
+        background-color: #1E2127;
+    }
+
+    div.game-cover-medium {
+        background-color: #5A5A5A;
+        width: 300px;
+        height: 380px;
+    }
+
+    div.game-large-cover {
+        width: 280px;
+        height: 450px;
+        background-color: #5A5A5A;
+    }
+
+    div.game-extra-large-cover {
+        width: 300px;
+        height: 700px;
+        background-color: #5A5A5A;
+        margin: 0 0 30px 0;
+    }
+
+    .recently-added-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1em;
+    }
+
+    .add-game-modal {
+        left: 10px;
+    }
+    .selector-game-options{
+        
+    }
 }

@@ -15,7 +15,7 @@ const pool = new Pool({
 //Scripts do banco de dados
 const createDbScript = "CREATE DATABASE db_login_system";
 const createTBScript = `CREATE TABLE IF NOT EXISTS "users" (
-    "id" UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    "id" SERIAL PRIMARY KEY,
     "name" VARCHAR(100) NOT NULL,
     "email" VARCHAR(55) UNIQUE NOT NULL,
     "password" VARCHAR(100) NOT NULL
