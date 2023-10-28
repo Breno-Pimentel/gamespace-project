@@ -47,7 +47,7 @@ const startDatabase = async () => {
       "SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE LOWER(TABLE_NAME) = LOWER('users')"
     );
     //Condição para que a tabela 'users' seja criada
-    if (tableVerify.rows.length == 0) {
+    if (tableVerify.rows.length === 0) {
       await mainPool.query(createTBScript);
       console.info("Table created successfully");
     }
