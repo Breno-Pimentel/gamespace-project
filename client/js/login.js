@@ -21,7 +21,13 @@ loginBtn.addEventListener("click", (e) => {
         body: JSON.stringify(data),
       })
         .then((response) => response.json())
-        .then((data) => console.log(data));
+        .then((data) => {
+          const id = data.id;
+          if (data.msg === "Autenticação realizada com sucesso") {
+            window.location.replace(`http://localhost:3000/user/${id}`);
+            
+          }
+        });
     } catch (error) {
       console.error(error);
     }

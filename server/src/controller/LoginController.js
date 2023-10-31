@@ -41,14 +41,7 @@ const loginUser = async (request, res) => {
       return res.status(401).json({ msg: "Senha Inválida inválida" });
     }
 
-    // Gerar token
-    const secret =
-      "HDLOIUYBFRCXZ12343HUIOBASCBKPL2IOKJOJI5J6L6790451964UISACBHY$#";
-    const token = jwt.sign({ id, email: userEmail }, secret, {
-      expiresIn: "1h",
-    });
-
-    res.status(200).json({ msg: "Autenticação realizada com sucesso", token });
+    res.status(200).json({ msg: "Autenticação realizada com sucesso", id: id });
   } catch (error) {
     console.error(error);
     res.status(500).json({ msg: "Aconteceu um erro no servidor" });

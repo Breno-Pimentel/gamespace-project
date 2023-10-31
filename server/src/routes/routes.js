@@ -15,7 +15,6 @@ const {
   createGame,
   getGameByID,
 } = require("../controller/gameController");
-const checkToken = require("../middlewares/auth.middleware");
 const loginUser = require("../controller/LoginController");
 
 //Rotas Públicas
@@ -31,7 +30,7 @@ router.get("/game/:id", getGameByID);
 router.post("/create/game", createGame);
 
 //Rotas Privadas
-router.get("/user/:id", checkToken, getUserByID); //Falta o metodo de busca por id
+router.get("/user/:id", getUserByID); //Falta o metodo de busca por id
 
 //Exportando o metodo router para fora do arquivo
 module.exports = router;

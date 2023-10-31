@@ -1,13 +1,52 @@
 const addGameBtn = document.getElementById("add-game");
 const AddGameModal = document.querySelector(".add-game-modal");
 const exitBtn = document.querySelector(".exit");
+const createGame = document.getElementById("createGame");
+const imageGame = document.getElementById("image-game-file");
+const Gamename = document.getElementById("name");
+const plataform = document.querySelector("#plataform");
+const gendre = document.querySelector("#gendre");
+const release = document.querySelector("#release");
+const language = document.querySelector("#language");
+const resource = document.querySelector("#resource");
+const gameStatus = document.querySelector("#status");
 
 addGameBtn.addEventListener("click", (e) => {
   e.preventDefault();
 
   AddGameModal.style.display = "block";
 });
+createGame.addEventListener("click", (e) => {
+  e.preventDefault();
 
+  async function createGameFetch() {
+    const data = {
+      img: imageGame.value,
+      name: Gamename.value,
+      plataform: plataform.value,
+      genre: gendre.value,
+      releaseYear: release.value,
+      language: language.value,
+      resource: resource.value,
+      status: gameStatus.value,
+    };
+    try {
+      const result = await fetch("http://localhost:3000/create/game", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
+        .then((response) => response.json())
+        .then((data) => console.log(data));
+    } catch (error) {
+      console.error(error);
+      console.log(data);
+    }
+  }
+  createGameFetch();
+});
 exitBtn.addEventListener("click", (e) => {
   e.preventDefault();
   AddGameModal.style.display = "none";
