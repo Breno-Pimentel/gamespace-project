@@ -3,9 +3,9 @@ const AddGameModal = document.querySelector(".add-game-modal");
 const exitBtn = document.querySelector(".exit");
 const createGame = document.getElementById("createGame");
 const imageGame = document.getElementById("image-game-file");
-const Gamename = document.getElementById("name");
+const Gamename = document.getElementById("gameName");
 const plataform = document.querySelector("#plataform");
-const gendre = document.querySelector("#gendre");
+const genre = document.querySelector("#genre");
 const release = document.querySelector("#release");
 const language = document.querySelector("#language");
 const resource = document.querySelector("#resource");
@@ -24,11 +24,11 @@ createGame.addEventListener("click", (e) => {
       img: imageGame.value,
       name: Gamename.value,
       plataform: plataform.value,
-      genre: gendre.value,
+      genre: genre.value,
       releaseYear: release.value,
       language: language.value,
       resource: resource.value,
-      status: gameStatus.value,
+      gameStatus: gameStatus.value,
     };
     try {
       const result = await fetch("http://localhost:3000/create/game", {
@@ -51,3 +51,5 @@ exitBtn.addEventListener("click", (e) => {
   e.preventDefault();
   AddGameModal.style.display = "none";
 });
+
+

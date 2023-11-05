@@ -49,20 +49,112 @@ a#login-btn {
     width: 10em;
     height: 3em;
     border-radius: 1em;
-    border: 1px solid #001;
+    border: 2px solid #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
+    color: #FFFF;
 }
 
-main#main-content {
+main#main-content {}
+
+section.first-section {
+    background-image: url("../imgs/Image\ de\ fundo.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: yellow;
     width: 100%;
     height: 100vh;
-    background-image: url(../imgs/image_estamosEmConstrução.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-color: yellow;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
+
+section.first-section h1 {
+    color: #fff;
+    font-family: 'Audiowide', cursive;
+    font-size: 50px;
+    font-weight: 300;
+    width: 600px;
+}
+
+section.second-section {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+section.second-section .apresentation-text {
+    width: 600px;
+}
+
+section.third-section {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    align-items: center;
+    background-color: black;
+}
+
+.apresentation-text h2 {
+    font-size: 36px;
+}
+
+.apresentation-text p {
+    width: 560px;
+}
+
+section.fourth-section {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #FFFF;
+}
+
+section.fifth-section {}
+
+div.lookDown {
+    background-color: #000000;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.last-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: black;
+    width: 100%;
+    height: auto;
+}
+
+.last-section h1 {
+    font-size: 36px;
+    margin: 30px 0;
+}
+
+.last-section-games-bar {
+    display: flex;
+    gap: 40px;
+    margin: 30px 0;
+}
+
+.last-section-games-bar li img {
+    width: 190px;
+    height: 360px;
+}
+
+div.apresentation-image {}
 
 /* ###################################### */
 /*LOGIN*/
@@ -408,10 +500,25 @@ div.welcome-register-area p {
     background-color: #fff;
 }
 
+input#gameName {
+    font-size: 16px;
+    padding: 2px 2px 2px 5px;
+    width: 300px;
+    height: 40px;
+}
+
+input#release {
+    font-size: 16px;
+    padding: 2px 2px 2px 5px;
+    width: 300px;
+    height: 40px;
+}
+
 #createGame {
     width: 50%;
     background-color: #151554;
     color: #fff;
+    margin-bottom: 10px;
 }
 
 .container {
@@ -490,7 +597,12 @@ button#add-game {
     height: 56px;
 }
 
-button#favorite {
+button#detailedSearch {
+    width: 370px;
+    height: 56px;
+}
+
+button#existingGames {
     width: 370px;
     height: 56px;
 }
@@ -539,6 +651,11 @@ div.game {
     height: 280px;
     line-height: 110px;
 }
+
+/* div.game:hover{
+    min-width: 800px;
+    height: 800px;
+} */
 
 /*Scrollbar*/
 ::-webkit-scrollbar {
@@ -612,6 +729,120 @@ footer {
 
 footer p {
     margin-bottom: 10px;
+}
+
+/* ###################################### */
+/* search-page ############################ */
+/* ###################################### */
+.search-page-header {
+    background-color: #15181D;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+aside.search-options {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    background-color: #15181D;
+    height: auto;
+    position: relative;
+}
+
+h2.plataformTitle {
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+
+h2.categoriesTitle {
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+
+input.checkbox {
+    width: 20px;
+    height: 20px;
+    background-color: #5A5A5A;
+}
+
+li label {
+    font-size: 14px;
+    color: #ffffff;
+    padding-bottom: 0px;
+}
+
+ul.categories {
+    position: absolute;
+    left: 30px;
+    top: 14px;
+}
+
+ul.plataforms {
+    position: absolute;
+    left: 30px;
+    top: 250px;
+}
+
+main.search-page-results {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 30px;
+    background-color: #15181D;
+    padding-top: 30px;
+    padding: 20px;
+
+}
+
+.game-cover {
+    min-width: 300px;
+    min-height: 300px;
+    background-color: #747474;
+    flex-grow: 0;
+}
+
+/* ###################################### */
+/* game-page ############################ */
+/* ###################################### */
+
+.game-page-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    gap: 30px;
+
+}
+
+.blur {
+    width: 1358px;
+    height: 689px;
+    background: url(/client/assets/imgs/image_estamosEmConstrução.png), lightgray 50% / cover no-repeat;
+    background-blend-mode: luminosity;
+    filter: blur(10.5px);
+}
+
+.game-image {
+    position: absolute;
+    left: 300px;
+    background-color: black;
+    width: 300px;
+    height: 400px;
+}
+
+.information {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    right: 530px;
+    top: 145px;
+}
+
+.information p {
+    font-size: 20px;
 }
 
 /* ###################################### */
@@ -718,6 +949,20 @@ footer p {
         display: flex;
         align-items: center;
         margin-right: 10px;
+    }
+
+    input#gameName {
+        font-size: 16px;
+        padding: 2px 2px 2px 5px;
+        width: 300px;
+        height: 40px;
+    }
+
+    input#release {
+        font-size: 16px;
+        padding: 2px 2px 2px 5px;
+        width: 300px;
+        height: 40px;
     }
 
 }
@@ -927,7 +1172,7 @@ footer p {
         height: 56px;
     }
 
-    button#favorite {
+    button#detailedSearch {
         width: 280px;
         height: 56px;
     }
@@ -974,7 +1219,50 @@ footer p {
     }
 
     .add-game-modal {
-        left: 10px;
+        left: 33px;
     }
-  
+
+    input#createGame {
+        margin-bottom: 10px;
+    }
+
+    form {
+        gap: 20px;
+    }
+
+    input#gameName {
+        font-size: 16px;
+        padding: 2px 2px 2px 5px;
+        width: 300px;
+        height: 40px;
+    }
+
+    input#release {
+        font-size: 16px;
+        padding: 2px 2px 2px 5px;
+        width: 300px;
+        height: 40px;
+    }
+
+    /*search-page*/
+
+
+
+
+    aside.search-options {
+        width: auto;
+    }
+
+    ul.categories {
+        position: unset;
+    }
+
+    ul.plataforms {
+        position: unset;
+    }
+
+    main.search-page-results {
+        justify-content: center;
+    }
+
 }

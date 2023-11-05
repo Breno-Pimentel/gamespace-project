@@ -27,12 +27,12 @@ const createGame = async (request, res) => {
   const {
     name,
     plataform,
-    game_genres,
-    game_release_year,
-    game_language,
-    game_status,
-    game_resource,
-    game_image,
+    genre,
+    releaseYear,
+    language,
+    gameStatus,
+    resource,
+    image,
   } = request.body;
   if (!name) {
     return res.status(422).json({ msg: "Complete corretamente os campos" });
@@ -42,12 +42,12 @@ const createGame = async (request, res) => {
     [
       name,
       plataform,
-      game_genres,
-      game_release_year,
-      game_language,
-      game_status,
-      game_resource,
-      game_image,
+      genre,
+      releaseYear,
+      language,
+      gameStatus,
+      resource,
+      image,
     ]
   );
   console.log(response);
@@ -57,12 +57,12 @@ const createGame = async (request, res) => {
       game: {
         name,
         plataform,
-        game_genres,
-        game_release_year,
-        game_language,
-        game_status,
-        game_resource,
-        game_image,
+        genre,
+        releaseYear,
+        language,
+        gameStatus,
+        resource,
+        image,
       },
     },
   });
