@@ -8,6 +8,10 @@
     font-family: 'Poppins', sans-serif;
 }
 
+body {
+    scroll-behavior: smooth;
+}
+
 a {
     text-decoration: none;
     color: inherit;
@@ -68,8 +72,10 @@ section.first-section {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 
 }
+
 
 section.first-section h1 {
     color: #fff;
@@ -77,6 +83,13 @@ section.first-section h1 {
     font-size: 50px;
     font-weight: 300;
     width: 600px;
+}
+.plataformsLogos {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    bottom: 60px;
+    gap: 24px;
 }
 
 section.second-section {
