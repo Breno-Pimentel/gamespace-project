@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Oswald:wght@300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400&display=swap');
 
 * {
     margin: 0;
@@ -49,6 +50,11 @@ img#logo {
     width: 20em;
 }
 
+img#logo-mobile {
+    display: none;
+
+}
+
 a#login-btn {
     width: 10em;
     height: 3em;
@@ -84,6 +90,7 @@ section.first-section h1 {
     font-weight: 300;
     width: 600px;
 }
+
 .plataformsLogos {
     display: flex;
     flex-direction: row;
@@ -133,7 +140,6 @@ section.fourth-section {
     background-color: #FFFF;
 }
 
-section.fifth-section {}
 
 div.lookDown {
     background-color: #000000;
@@ -230,12 +236,14 @@ div.welcome-login-area {
 
 div.welcome-login-area h1 {
     width: 150px;
+    font-family: 'Poppins', sans-serif;
 }
 
 p.subtitle {
     font-weight: lighter;
     font-size: 14px;
     width: 200px;
+    font-family: 'Roboto', sans-serif;
 }
 
 a.btn {
@@ -270,9 +278,8 @@ div.login-area-header {
 }
 
 div.login-area-header h1 {
-
-    font-family: 'Audiowide', cursive;
-    font-weight: 300;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
 }
 
 div.login-area-header p {
@@ -464,6 +471,30 @@ div.welcome-register-area p {
     animation: entry 0.5s ease 0s 1 normal forwards;
 }
 
+.existingGameModal {
+    position: absolute;
+    background-color: white;
+    width: 400px;
+    height: 600px;
+    left: 500px;
+    top: 120px;
+    border-radius: 20px;
+    display: none;
+    animation: entry 0.5s ease 0s 1 normal forwards;
+
+
+}
+
+.exitBtnExistingModal {
+    position: absolute;
+    cursor: pointer;
+    width: 40px;
+    right: 10px;
+    top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 
 .exit {
@@ -492,9 +523,46 @@ div.welcome-register-area p {
     padding-left: 10px;
 }
 
+.add-existingGame-form {
+    background-color: #001;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+    padding-left: 10px;
+    gap: 10px;
+}
+
+.add-existingGame-form h2 {
+    margin-top: 60px;
+}
+
+#addGame {
+    width: 70%;
+    background-color: #151554;
+    color: #fff;
+    margin-bottom: 10px;
+    position: absolute;
+    bottom: 10px;
+}
+
+.exitBtnExistingModal {}
 
 
 .selector-game-options {
+    width: 300px;
+    height: 40px;
+    border-radius: 10px;
+    font-size: 20px;
+    border: none;
+    background-color: #F3EBEB;
+    padding: 2px 2px 2px 5px;
+    color: #5A5A5A;
+    font-size: 16px;
+}
+
+select#game-list {
     width: 300px;
     height: 40px;
     border-radius: 10px;
@@ -665,10 +733,7 @@ div.game {
     line-height: 110px;
 }
 
-/* div.game:hover{
-    min-width: 800px;
-    height: 800px;
-} */
+
 
 /*Scrollbar*/
 ::-webkit-scrollbar {
@@ -754,6 +819,10 @@ footer p {
     justify-content: space-around;
 }
 
+.wrapper {
+    height: auto;
+}
+
 aside.search-options {
     display: flex;
     flex-direction: column;
@@ -832,21 +901,27 @@ main.search-page-results {
 .blur {
     width: 1358px;
     height: 689px;
-    background: url(/client/assets/imgs/image_estamosEmConstrução.png), lightgray 50% / cover no-repeat;
     background-blend-mode: luminosity;
     filter: blur(10.5px);
 }
 
-.game-image {
+.central-wrapper {
     position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.game-image {
     left: 300px;
-    background-color: black;
-    width: 300px;
+    background-color: #5A5A5A;
+    width: 400px;
     height: 400px;
 }
 
 .information {
-    position: absolute;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -862,7 +937,163 @@ main.search-page-results {
 /* MEDIA QUERYS - BREAKPOINT #############*/
 /* ###################################### */
 
-@media (max-width: 860px) {
+@media (max-width: 1140px) {
+
+    /* INDEX*/
+    header#navigation-header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 1em;
+        position: absolute;
+        width: 100%;
+    }
+
+    img#logo {
+        width: 20em;
+        display: block;
+    }
+
+    img#logo-mobile {
+        display: none;
+        width: 60px;
+
+    }
+
+    a#login-btn {
+        width: 10em;
+        height: 3em;
+        border-radius: 1em;
+        border: 2px solid #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #FFFF;
+    }
+
+    section.first-section {
+        background-image: url("../imgs/Image\ de\ fundo.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color: yellow;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+    }
+
+
+    section.second-section {
+        width: 100%;
+        height: 500px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    section.second-section .apresentation-text {
+        width: 50%;
+    }
+
+    section.second-section .apresentation-image {
+        width: 300px;
+    }
+
+    section.second-section .apresentation-image img {
+        width: 100%;
+    }
+
+
+    section.third-section {
+        width: 100%;
+        height: 500px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        background-color: black;
+    }
+
+    .apresentation-text {
+        width: 50%;
+    }
+
+    .apresentation-text p {
+        width: 300px;
+    }
+
+    .apresentation-text h2 {
+        font-size: 39px;
+    }
+
+
+
+    section.third-section .apresentation-image {
+        width: 300px;
+    }
+
+    section.third-section .apresentation-image img {
+        width: 100%;
+    }
+
+    section.fourth-section {
+        width: 100%;
+        height: 500px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        background-color: #FFFF;
+    }
+
+    section.fourth-section .apresentation-image {
+        width: 300px;
+    }
+
+    section.fourth-section .apresentation-image img {
+        width: 100%;
+    }
+
+
+    .last-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: black;
+        width: 100%;
+        height: auto;
+    }
+
+    .last-section h1 {
+        width: 450px;
+        font-size: 30px;
+        margin: 30px 0;
+        text-align: center;
+    }
+
+    .last-section p {
+        width: 500px;
+        text-align: center;
+    }
+
+
+
+    .last-section-games-bar {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        margin: 30px 0;
+    }
+
+    .last-section-games-bar li img {
+        width: 250px;
+        height: 360px;
+    }
+
 
     /* LOGIN */
     img.logo {
@@ -957,6 +1188,10 @@ main.search-page-results {
         left: 170px;
     }
 
+    .existingGameModal {
+        left: 170px;
+    }
+
     .profile-mobile-way {
         display: block;
         display: flex;
@@ -978,9 +1213,178 @@ main.search-page-results {
         height: 40px;
     }
 
+    button#add-game {
+        width: 250px;
+        height: 56px;
+    }
+
+    button#detailedSearch {
+        width: 250px;
+        height: 56px;
+    }
+
+    button#existingGames {
+        width: 250px;
+        height: 56px;
+    }
+
 }
 
 @media (max-width: 578px) {
+
+    /* index */
+    header#navigation-header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 1em;
+        position: absolute;
+        width: 100%;
+    }
+
+    img#logo {
+        width: 20em;
+        display: none;
+    }
+
+    img#logo-mobile {
+        display: block;
+        width: 60px;
+
+    }
+
+    a#login-btn {
+        width: 10em;
+        height: 3em;
+        border-radius: 1em;
+        border: 2px solid #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #FFFF;
+    }
+
+
+    section.first-section {
+        background-image: url("../imgs/Image\ de\ fundo.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color: yellow;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+    }
+
+
+    section.first-section h1 {
+        width: 250px;
+    }
+
+    section.second-section {
+        width: 100%;
+        height: 500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    section.second-section .apresentation-text {
+        width: 270px;
+    }
+
+    section.second-section .apresentation-image {
+        width: 300px;
+    }
+
+    section.second-section .apresentation-image img {
+        width: 100%;
+    }
+
+
+    section.third-section {
+        width: 100%;
+        height: 500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        background-color: black;
+    }
+
+    .apresentation-text {
+        width: 270px;
+    }
+
+    .apresentation-text h2 {
+        font-size: 39px;
+    }
+
+    .apresentation-text p {
+        display: none;
+    }
+
+    section.third-section .apresentation-image {
+        width: 300px;
+    }
+
+    section.third-section .apresentation-image img {
+        width: 100%;
+    }
+
+    section.fourth-section {
+        width: 100%;
+        height: 500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        background-color: #FFFF;
+    }
+
+    section.fourth-section .apresentation-image {
+        width: 300px;
+    }
+
+    section.fourth-section .apresentation-image img {
+        width: 100%;
+    }
+
+
+    .last-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: black;
+        width: 100%;
+        height: auto;
+    }
+
+    .last-section h1 {
+        width: 270px;
+        font-size: 30px;
+        margin: 30px 0;
+    }
+
+    .last-section p {
+        display: none;
+    }
+
+    .last-section-games-bar {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        margin: 30px 0;
+    }
+
+    .last-section-games-bar li img {
+        width: 250px;
+        height: 360px;
+    }
 
     /* REGISTER */
     .wrapper {
@@ -1127,6 +1531,15 @@ main.search-page-results {
     }
 
     /*Dashboard*/
+    .add-game-modal {
+        width: 335px;
+    }
+
+    .existingGameModal {
+        left: 33px;
+        width: 335px;
+    }
+
     header.dashboard-header {
         display: flex;
         align-items: center;
@@ -1186,6 +1599,11 @@ main.search-page-results {
     }
 
     button#detailedSearch {
+        width: 280px;
+        height: 56px;
+    }
+
+    button#existingGames {
         width: 280px;
         height: 56px;
     }

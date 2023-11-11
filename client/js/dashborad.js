@@ -1,6 +1,10 @@
 const addGameBtn = document.getElementById("add-game");
 const AddGameModal = document.querySelector(".add-game-modal");
+const addExistingGamebtn = document.getElementById("existingGames");
+const addExistingGameModal = document.querySelector(".existingGameModal");
 const exitBtn = document.querySelector(".exit");
+const exitBtnExistingModal = document.querySelector(".exitBtnExistingModal");
+
 const createGame = document.getElementById("createGame");
 const imageGame = document.getElementById("image-game-file");
 const Gamename = document.getElementById("gameName");
@@ -16,6 +20,12 @@ addGameBtn.addEventListener("click", (e) => {
 
   AddGameModal.style.display = "block";
 });
+addExistingGamebtn.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  addExistingGameModal.style.display = "block";
+});
+
 createGame.addEventListener("click", (e) => {
   e.preventDefault();
 
@@ -50,6 +60,9 @@ createGame.addEventListener("click", (e) => {
 exitBtn.addEventListener("click", (e) => {
   e.preventDefault();
   AddGameModal.style.display = "none";
+  addExistingGameModal.style.display = "none";
 });
-
-
+exitBtnExistingModal.addEventListener("click", (e) => {
+  e.preventDefault();
+  addExistingGameModal.style.display = "none";
+});

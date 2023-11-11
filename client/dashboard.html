@@ -14,7 +14,12 @@
         </div>
         <form action="" class="add-game-form">
           <input type="file" name="image" id="image-game-file" />
-          <input type="text" name="name" id="gameName" placeholder="Nome do jogo"/>
+          <input
+            type="text"
+            name="name"
+            id="gameName"
+            placeholder="Nome do jogo"
+          />
           <select
             name="Plataforma"
             id="plataform"
@@ -35,7 +40,12 @@
             <option value="Simulação">Simulação</option>
             <option value="Esportes">Esportes</option>
           </select>
-          <input type="number" name="release-yaer" id="release" placeholder="Selecione o ano de lançamento"/>
+          <input
+            type="number"
+            name="release-yaer"
+            id="release"
+            placeholder="Selecione o ano de lançamento"
+          />
           <select name="idioma" id="language" class="selector-game-options">
             <option value="Default">Selecione o idioma</option>
             <option value="Português">Portguês do Brasil</option>
@@ -68,6 +78,25 @@
           <input type="button" name="" id="createGame" value="Criar" />
         </form>
       </div>
+      <div class="existingGameModal">
+        <div class="exitBtnExistingModal">
+          <img src="./assets/imgs/close.svg" alt="" class="exit-logo" />
+        </div>
+        <form class="add-existingGame-form">
+          <h2>Escolha um jogo na lista:</h1>
+          <select name="game-list" id="game-list">
+            <option value="Spider-Man">Spider-Man</option>
+            <option value="Call of Duty">Call of Duty</option>
+            <option value="Bob Esponja">Bob Esponja</option>
+          </select>
+          <input
+            type="button"
+            name="adicionar"
+            id="addGame"
+            value="ADICIONAR JOGO"
+          />
+        </form>
+      </div>
       <header class="dashboard-header">
         <div class="logo">
           <img src="./assets/imgs/logo.svg" alt="" class="desktop-logo" />
@@ -96,7 +125,9 @@
         <div class="first-content">
           <div class="options">
             <button id="add-game">ADICIONE SEU JOGO</button>
-            <a href="/client/search-page.html"><button id="detailedSearch">MINHA LISTA DE JOGOS</button></a>
+            <a href="/client/search-page.html"
+              ><button id="detailedSearch">MINHA LISTA DE JOGOS</button></a
+            >
             <button id="existingGames">ADICIONE JOGO EXISTENTE</button>
           </div>
           <div class="game-cover-medium">
@@ -106,12 +137,7 @@
         </div>
         <div class="carousel-bar">
           <p>XBOX</p>
-          <div class="left-arrow">
-            <img src="./assets/imgs/left-arrow.svg" alt="" />
-          </div>
-          <div class="right-arrow">
-            <img src="./assets/imgs/right-arrow.svg" alt="" />
-          </div>
+
           <div class="games-bar">
             <div class="game"></div>
             <div class="game"></div>
@@ -125,12 +151,7 @@
         </div>
         <div class="carousel-bar">
           <p>PLAYSTATION</p>
-          <div class="left-arrow">
-            <img src="./assets/imgs/left-arrow.svg" alt="" />
-          </div>
-          <div class="right-arrow">
-            <img src="./assets/imgs/right-arrow.svg" alt="" />
-          </div>
+
           <div class="games-bar">
             <div class="game"></div>
             <div class="game"></div>
@@ -159,12 +180,7 @@
         </div>
         <div class="carousel-bar">
           <p>PC</p>
-          <div class="left-arrow">
-            <img src="./assets/imgs/left-arrow.svg" alt="" />
-          </div>
-          <div class="right-arrow">
-            <img src="./assets/imgs/right-arrow.svg" alt="" />
-          </div>
+
           <div class="games-bar">
             <div class="game"></div>
             <div class="game"></div>
