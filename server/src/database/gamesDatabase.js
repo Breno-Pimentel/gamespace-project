@@ -17,7 +17,7 @@ const createGameTBScript = `CREATE TABLE IF NOT EXISTS "games" (
     "game_language" VARCHAR(55) NOT NULL,
     "game_status" VARCHAR(55) NOT NULL,
     "game_resource" VARCHAR(55) NOT NULL,
-    "game_image" BYTEA
+    "game_image" VARCHAR(255) NOT NULL
 );`;
 
 const createGamesTable = async () => {

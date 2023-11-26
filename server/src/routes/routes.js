@@ -20,7 +20,6 @@ const loginUser = require("../controller/LoginController");
 //Rotas Públicas
 router.get("/users", getUsers);
 router.post("/auth/register", createUser);
-// router.get("/users/:id", getUserByID);
 router.delete("/users/:id", deleteUser);
 router.put("/users/:id", updateUser);
 router.post("/auth/login", loginUser);

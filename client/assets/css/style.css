@@ -626,6 +626,7 @@ header.dashboard-header {
 #search-bar {
     width: 300px;
     height: 45px;
+    padding: 0 0 0 10px;
 }
 
 .search-mobile-way {

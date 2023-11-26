@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 require("dotenv").config({ override: true });
-const startDatabase = require("./database/database");
+const startDatabase = require("./database/userDatabase");
 const createGamesTable = require("./database/gamesDatabase");
 const createGamespaceTable = require("./database/gamespaceDatabase");
 //middlewares - faz referencias a funcoes que são passadas antes da rota
