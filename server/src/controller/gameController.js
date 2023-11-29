@@ -1,12 +1,7 @@
+// gameController.js
 const { Pool } = require("pg");
-const multer = require('multer');
-const storage = multer.diskStorage({
-  destination: "./uploads",
-  filename: (req, file, cb) => {
-    cb(null, file.originalname);
-  },
-});
-const upload = multer({ storage });
+const multer = require("multer");
+const upload = require("../middleware/MulterMiddleware");
 
 const pool = new Pool({
   user: process.env.USER,
@@ -21,6 +16,7 @@ const getGames = async (request, res) => {
   console.log(response.rows);
   res.status(200).json(response.rows);
 };
+
 const getGameByID = async (request, res) => {
   const id = request.params.id;
   const response = await pool.query(
@@ -32,45 +28,12 @@ const getGameByID = async (request, res) => {
   }
   res.json(response.rows);
 };
-const createGame = async (request, res, next) => {
-  const {
-    name,
-    plataform,
-    genre,
-    releaseYear,
-    language,
-    gameStatus,
-    resource,
-    img
-  } = request.body;
 
-  // Lidando com o upload de imagem usando o multer
-  const image = upload.single("image")(request, res, next); // Passe a função 'next' aqui
+const createGame = async (request, res) => {
+  try {
+    
 
-  if (!image) {
-    return res.status(422).json({ msg: "Preencha corretamente os campos" });
-  }
-
-  const response = await pool.query(
-    "INSERT INTO games (name, plataform, game_genres, game_release_year, game_language, game_status,game_resource, game_image) VALUES($1,$2,$3,$4,$5,$6,$7,$8)",
-    [
-      name,
-      plataform,
-      genre,
-      releaseYear,
-      language,
-      gameStatus,
-      resource,
-      image.filename, // Salvar o nome do arquivo da imagem no banco de dados
-      img.filename
-    ]
-  );
-
-  console.log(response);
-  res.json({
-    message: "Jogo adicionado com sucesso",
-    body: {
-      game: {
+      const {
         name,
         plataform,
         genre,
@@ -78,13 +41,47 @@ const createGame = async (request, res, next) => {
         language,
         gameStatus,
         resource,
-        image: image.filename, // Incluir o nome do arquivo da imagem na resposta
-        img: img.filename
-      },
-    },
-  });
-};
+      } = request.body;
 
+      if (!name) {
+        return res.status(422).json({ msg: "Complete corretamente os campos" });
+      }
+
+      const response = await pool.query(
+        "INSERT INTO games (name, plataform, game_genres, game_release_year, game_language, game_status,game_resource, game_image) VALUES($1,$2,$3,$4,$5,$6,$7,$8)",
+        [
+          name,
+          plataform,
+          genre,
+          releaseYear,
+          language,
+          gameStatus,
+          resource,
+          image,
+        ]
+      );
+
+      console.log(response);
+      res.json({
+        message: "Game added successfully",
+        body: {
+          game: {
+            name,
+            plataform,
+            genre,
+            releaseYear,
+            language,
+            gameStatus,
+            resource,
+            image,
+          },
+        },
+      });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ msg: "Internal Server Error" });
+  }
+};
 const deletGame = async (request, res) => {
   const id = request.params.id;
   const response = await pool.query("DELET FROM games WHERE id = $1", [id]);
