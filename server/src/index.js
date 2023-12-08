@@ -7,9 +7,12 @@ const startDatabase = require("./database/userDatabase");
 const createGamesTable = require("./database/gamesDatabase");
 const createGamespaceTable = require("./database/gamespaceDatabase");
 //middlewares - faz referencias a funcoes que são passadas antes da rota
-app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+//middlewares - faz referencias a funcoes que são passadas antes da rota
+app.use(cors({
+  origins: ["http://localhost", "https://localhost"],
+  }));
+  app.use(express.json());
+  app.use(express.urlencoded({ extended: false }));
 
 //rotas
 app.use(require("./routes/routes"));
