@@ -24,6 +24,8 @@ console.log("Server is running ok");
 */
 const express = require("express");
 const cors = require("cors");
+const https = require("https");
+const fs = require("fs");
 const app = express();
 
 // Configuração do CORS
@@ -46,8 +48,16 @@ app.use(express.urlencoded({ extended: false }));
 // Rotas
 app.use(require("./routes/routes"));
 
-// Inicializando o servidor
-app.listen(3000, () => {
-  console.log("Server is listening on port 3000");
+// Carregar as chaves e certificados SSL
+const privateKey = fs.readFileSync('/etc/letsencrypt/live/prestecinfo.com.br/privkey.pem', 'utf8');
+const certificate = fs.readFileSync('/etc/letsencrypt/live/prestecinfo.com.br/fullchain.pem', 'utf8');
+
+const credentials = { key: privateKey, cert: certificate };
+
+// Criar servidor HTTPS
+const httpsServer = https.createServer(credentials, app);
+
+httpsServer.listen(3000, () => {
+  console.log("HTTPS server is listening on port 3000");
   console.log("Server is running ok");
 });
