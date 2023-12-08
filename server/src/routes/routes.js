@@ -1,7 +1,7 @@
 // routes.js
 const { Router } = require("express")
 const axios = require("axios")
-const upload = require("../middleware/MulterMiddleware.js");
+const {upload} = require("../middleware/MulterMiddleware.js");
 const{
   getUsers,
   createUser,
