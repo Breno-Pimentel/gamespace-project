@@ -1,6 +1,10 @@
 // routes.js
 const { Router } = require("express");
 const router = Router();
+
+// Importando o Axios
+import axios from "axios";
+
 // Importando o middleware de upload
 const upload = require("../middleware/MulterMiddleware");
 
@@ -28,6 +32,20 @@ router.post("/upload", upload.single("img"), (req, res) => {
   // Lógica para tratar o upload da imagem
   res.json({ message: "Image uploaded successfully", filename: req.file.filename });
 });
+
+// Rotas Privadas
+router.get("/user/:id", async (req, res) => {
+  try {
+    // Utilizando Axios para enviar a requisição GET
+    const response = await axios.get(`/api/users/${req.params.id}`);
+    res.json(response.data);
+  } catch (error) {
+    console.error(error);
+    res.status(error.response.status).send(error.response.data);
+  }
+});
+
+// Rotas usando Axios
 router.post("/create/game", async (req, res) => {
   try {
     // Utilizando Axios para enviar a requisição POST
@@ -39,19 +57,10 @@ router.post("/create/game", async (req, res) => {
   }
 });
 
-// Rotas Privadas
-router.get("/user/:id", async (req, res) => {
-  try {
-    const response = await axios.get(`/api/users/${req.params.id}`);
-    res.json(response.data);
-  } catch (error) {
-    console.error(error);
-    res.status(error.response.status).send(error.response.data);
-  }
-});
-
 // Exportando o método router para fora do arquivo
 module.exports = router;
+
+
 
 
 

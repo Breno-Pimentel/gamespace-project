@@ -1,5 +1,6 @@
 const express = require("express");
-const axios = require("axios");
+// Importando o Axios
+import axios from "axios";
 const app = express();
 require("dotenv").config({ override: true });
 const startDatabase = require("./database/userDatabase");
@@ -16,6 +17,7 @@ app.use(require("./routes/routes"));
 // Exemplo de uso do Axios para fazer uma requisição GET
 app.get("/api/users/:id", async (req, res) => {
   try {
+    // Utilizando Axios para enviar a requisição GET
     const response = await axios.get(
       `https://api.example.com/users/${req.params.id}`
     );
@@ -25,6 +27,17 @@ app.get("/api/users/:id", async (req, res) => {
     res.status(error.response.status).send(error.response.data);
   }
 });
+
+// Implementação adicional
+// - Você pode adicionar interceptores de requisições e respostas para tarefas como:
+//     - Adicionar um cabeçalho de autorização a todas as requisições
+//     - Logar as requisições e respostas
+//     - Tratar erros de rede de forma centralizada
+
+app.listen(3000, () => {
+  console.log("Server is listening on port 3000");
+});
+
 
 // Implementação adicional
 // - Você pode adicionar interceptores de requisições e respostas para tarefas como:
