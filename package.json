@@ -5,8 +5,3 @@
 }
 // package.json
 
-{
-  "name": "express_crud",
-  "version": "1.0.0",
-  "type": "module"
-}
