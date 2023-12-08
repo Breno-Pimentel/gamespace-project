@@ -34,7 +34,7 @@ createGame.addEventListener("click", (e) => {
     formData.append("img", imageGame.files[0]);
 
     try {
-      const result = await fetch("https://www.prestecinfo.com.br:3000/upload", {
+      const result = await fetch("http://localhost:3000/upload", {
         method: "POST",
         body: formData,
       })
@@ -62,7 +62,7 @@ createGame.addEventListener("click", (e) => {
     };
 
     try {
-      const result = await fetch("https://www.prestecinfo.com.br:3000/create/game", {
+      const result = await fetch("http://localhost:3000/create/game", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

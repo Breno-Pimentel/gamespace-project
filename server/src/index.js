@@ -33,7 +33,7 @@ const createGamespaceTable = require("./database/gamespaceDatabase");
 
 // Configurar o middleware CORS
 const corsOptions = {
-  origin: "https://www.prestecinfo.com.br", // Substitua pelo seu domínio
+  origin: "http://www.prestecinfo.com.br", // Substitua pelo seu domínio
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   credentials: true,
   optionsSuccessStatus: 204,
