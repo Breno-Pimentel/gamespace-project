@@ -2,6 +2,7 @@
 
 import express from "express";
 import axios from "axios";
+import routes from "./routes/routes.js"; // Importe suas rotas como um módulo ES
 
 const app = express();
 
@@ -10,7 +11,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // Rotas
-app.use(require("./routes/routes"));
+app.use(routes);
 
 // Exemplo de uso do Axios para fazer uma requisição GET
 app.get("/api/users/:id", async (req, res) => {
@@ -22,7 +23,7 @@ app.get("/api/users/:id", async (req, res) => {
         headers: {
           Authorization: `Bearer ${process.env.API_KEY}`,
         },
-      },
+      }
     );
     res.json(response.data);
   } catch (error) {
@@ -30,6 +31,7 @@ app.get("/api/users/:id", async (req, res) => {
     res.status(error.response.status).send(error.response.data);
   }
 });
+
 
 // Implementação adicional
 // - Você pode adicionar interceptores de requisições e respostas para tarefas como:

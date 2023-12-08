@@ -1,23 +1,18 @@
 // routes.js
-const { Router } = require("express");
-const router = Router();
-
-// Importando o Axios
+import { Router } from "express";
 import axios from "axios";
-
-// Importando o middleware de upload
-const upload = require("../middleware/MulterMiddleware");
-
-// Importando as funções da classe Controller
-const {
+import upload from "../middleware/MulterMiddleware.js";
+import {
   getUsers,
   createUser,
   getUserByID,
   deleteUser,
   updateUser,
-} = require("../controller/userController");
-const { getGames, createGame, getGameByID } = require("../controller/gameController");
-const loginUser = require("../controller/LoginController");
+} from "../controller/userController.js";
+import { getGames, createGame, getGameByID } from "../controller/gameController.js";
+import loginUser from "../controller/LoginController.js";
+
+const router = Router();
 
 // Rotas Públicas
 router.get("/users", getUsers);
@@ -57,8 +52,7 @@ router.post("/create/game", async (req, res) => {
   }
 });
 
-// Exportando o método router para fora do arquivo
-module.exports = router;
+export default router;
 
 
 
