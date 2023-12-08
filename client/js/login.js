@@ -10,7 +10,7 @@ loginBtn.addEventListener("click", (e) => {
     email: email.value,
     password: password.value,
   };
-
+// #
   async function login() {
     try {
       const result = await fetch("http://localhost:3000/auth/login", {

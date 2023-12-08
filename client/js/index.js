@@ -8,7 +8,7 @@ const emailInput = document.getElementById("email");
 const passwordInput = document.getElementById("password");
 const passwordConfirm = document.getElementById("#passsword-isEquals");
 const spans = document.querySelectorAll(".span-required");
-
+// #
 //##################################
 //         FUNÇOES E EVENTOS
 //##################################
