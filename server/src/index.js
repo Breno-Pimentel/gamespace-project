@@ -1,4 +1,3 @@
-/*
 const express = require("express");
 const cors = require("cors");
 const app = express();
@@ -21,7 +20,8 @@ console.log("Server is running ok");
 //Breno é um lindão que joga duro na kofre futuro engenheiro
 //Roque barrigudo
 //Roque, o serasa me ligou hoje
-*/
+
+/*
 const express = require("express");
 const cors = require("cors");
 const app = express();
@@ -50,5 +50,5 @@ app.use(require("./routes/routes"));
 app.listen(3000);
 console.log("Listening on port 3000 (HTTP)");
 console.log("Server is running OK");
-
+*/
 
