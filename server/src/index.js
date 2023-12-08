@@ -2,6 +2,47 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 require("dotenv").config({ override: true });
+
+// Database initialization
+const { startDatabase, createGamesTable, createGamespaceTable } = require("./database");
+
+// Middlewares
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
+// Routes
+const routes = require("./routes/routes");
+app.use(routes);
+
+// Start server
+const port = process.env.PORT || 3000;
+
+startDatabase()
+  .then(() => createGamesTable())
+  .then(() => createGamespaceTable())
+  .then(() => {
+    app.listen(port, () => {
+      console.log(`Server is listening on port ${port}`);
+    });
+  })
+  .catch((error) => {
+    console.error("Error starting server:", error);
+  });
+
+
+
+
+
+
+
+
+
+/*
+const express = require("express");
+const cors = require("cors");
+const app = express();
+require("dotenv").config({ override: true });
 const startDatabase = require("./database/userDatabase");
 const createGamesTable = require("./database/gamesDatabase");
 const createGamespaceTable = require("./database/gamespaceDatabase");
@@ -20,35 +61,4 @@ console.log("Server is running ok");
 //Breno é um lindão que joga duro na kofre futuro engenheiro
 //Roque barrigudo
 //Roque, o serasa me ligou hoje
-
-/*
-const express = require("express");
-const cors = require("cors");
-const app = express();
-require("dotenv").config({ override: true });
-const startDatabase = require("./database/userDatabase");
-const createGamesTable = require("./database/gamesDatabase");
-const createGamespaceTable = require("./database/gamespaceDatabase");
-
-// Configurar o middleware CORS
-const corsOptions = {
-  origin: "http://www.prestecinfo.com.br", // Substitua pelo seu domínio HTTP
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  credentials: true, // Se você estiver usando cookies ou autenticação
-  optionsSuccessStatus: 204, // Alguns navegadores podem exigir isso
-};
-
-app.use(cors(corsOptions));
-
-// Middlewares
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-
-// Rotas
-app.use(require("./routes/routes"));
-
-app.listen(3000);
-console.log("Listening on port 3000 (HTTP)");
-console.log("Server is running OK");
 */
-
