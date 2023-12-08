@@ -1,11 +1,9 @@
-const express = require("express");
-// Importando o Axios
+// src/index.mjs
+
+import express from "express";
 import axios from "axios";
+
 const app = express();
-require("dotenv").config({ override: true });
-const startDatabase = require("./database/userDatabase");
-const createGamesTable = require("./database/gamesDatabase");
-const createGamespaceTable = require("./database/gamespaceDatabase");
 
 // Middlewares
 app.use(express.json());
@@ -19,7 +17,12 @@ app.get("/api/users/:id", async (req, res) => {
   try {
     // Utilizando Axios para enviar a requisição GET
     const response = await axios.get(
-      `https://api.example.com/users/${req.params.id}`
+      `https://api.example.com/users/${req.params.id}`,
+      {
+        headers: {
+          Authorization: `Bearer ${process.env.API_KEY}`,
+        },
+      },
     );
     res.json(response.data);
   } catch (error) {
@@ -30,20 +33,32 @@ app.get("/api/users/:id", async (req, res) => {
 
 // Implementação adicional
 // - Você pode adicionar interceptores de requisições e respostas para tarefas como:
-//     - Adicionar um cabeçalho de autorização a todas as requisições
-//     - Logar as requisições e respostas
-//     - Tratar erros de rede de forma centralizada
+//   - Adicionar um cabeçalho de autorização a todas as requisições
+//   - Logar as requisições e respostas
+//   - Tratar erros de rede de forma centralizada
 
-app.listen(3000, () => {
-  console.log("Server is listening on port 3000");
-});
+// Interceptor de requisições
+app.use(axios.interceptors.request.use(
+  (config) => {
+    config.headers.Authorization = `Bearer ${process.env.API_KEY}`;
+    return config;
+  },
+  (error) => {
+    console.error(error);
+    return Promise.reject(error);
+  },
+));
 
-
-// Implementação adicional
-// - Você pode adicionar interceptores de requisições e respostas para tarefas como:
-//     - Adicionar um cabeçalho de autorização a todas as requisições
-//     - Logar as requisições e respostas
-//     - Tratar erros de rede de forma centralizada
+// Interceptor de respostas
+app.use(axios.interceptors.response.use(
+  (response) => {
+    return response;
+  },
+  (error) => {
+    console.error(error);
+    return Promise.reject(error);
+  },
+));
 
 app.listen(3000, () => {
   console.log("Server is listening on port 3000");
