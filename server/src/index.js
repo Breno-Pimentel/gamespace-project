@@ -6,10 +6,10 @@ const startDatabase = require("./database/userDatabase");
 const createGamesTable = require("./database/gamesDatabase");
 const createGamespaceTable = require("./database/gamespaceDatabase");
 
-dotenv.config({ override: true });
+dotenv.config({ path: "./env" }); // Alterado para carregar o arquivo .env especificado
 
 // Constantes
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.NODE_PORT || 3000; // Alterado para usar NODE_PORT, se especificado no .env
 const HOST = process.env.HOST || "localhost";
 
 // Middlewares
@@ -21,13 +21,22 @@ app.use(express.urlencoded({ extended: false }));
 app.use(require("./routes/routes"));
 
 // Inicialização do servidor
-app.listen(PORT, HOST, (error) => {
-  if (error) {
+startDatabase()
+  .then(() => createGamesTable())
+  .then(() => createGamespaceTable())
+  .then(() => {
+    app.listen(PORT, HOST, (error) => {
+      if (error) {
+        console.error("Erro ao iniciar o servidor:", error);
+      } else {
+        console.log(`Servidor rodando em http://${HOST}:${PORT}`);
+      }
+    });
+  })
+  .catch((error) => {
     console.error("Erro ao iniciar o servidor:", error);
-  } else {
-    console.log(`Servidor rodando em http://${HOST}:${PORT}`);
-  }
-});
+  });
+
 
 
 
