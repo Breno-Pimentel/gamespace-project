@@ -1,8 +1,8 @@
 
 
-import multer from "multer";
-import path from "path";
-import { promises as fs } from "fs";
+const multer =require("multer");
+const path =require("path");
+const { promises } =require("fs");
 
 let uploadedImagePath = ''; // Variável para armazenar o caminho da imagem
 
@@ -32,7 +32,7 @@ async function saveImagePathToText(imagePath) {
   }
 }
 
-export { upload, uploadedImagePath };
+module.exports = { upload, uploadedImagePath };
 
 
 

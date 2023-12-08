@@ -1,9 +1,8 @@
 // src/index.mjs
 
-import express from "express";
-import axios from "axios";
-import routes from "./routes/routes.js"; // Importe suas rotas como um módulo ES
-
+const express =require("express");
+const axios =require("axios");
+const routes =require("./routes/routes.js"); // Importe suas rotas como um módulo ES
 const app = express();
 
 // Middlewares

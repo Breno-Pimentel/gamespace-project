@@ -1,17 +1,16 @@
 // routes.js
-import { Router } from "express";
-import axios from "axios";
-import upload from "../middleware/MulterMiddleware.js";
-import {
+const { Router } = require("express")
+const axios = require("axios")
+const upload = require("../middleware/MulterMiddleware.js");
+const{
   getUsers,
   createUser,
   getUserByID,
   deleteUser,
   updateUser,
-} from "../controller/userController.js";
-import { getGames, createGame, getGameByID } from "../controller/gameController.js";
-import loginUser from "../controller/LoginController.js";
-
+}=require("../controller/userController.js");
+const { getGames, createGame, getGameByID } =require("../controller/gameController.js");
+const loginUser =require("../controller/LoginController.js");
 const router = Router();
 
 // Rotas Públicas
@@ -52,7 +51,7 @@ router.post("/create/game", async (req, res) => {
   }
 });
 
-export default router;
+module.exports= router;
 
 
 

@@ -1,8 +1,8 @@
 // gameController.js
-import pkg from "pg";
-const { Pool } = pkg;
-import multer from "multer";
-import uploadedImagePath from "../middleware/MulterMiddleware.js";
+const pg =require("pg");
+const { Pool } =require("pg");
+const multer =require("multer");
+const {uploadedImagePath} =require("../middleware/MulterMiddleware.js");
 
 const pool = new Pool({
   user: process.env.USER,
@@ -80,8 +80,7 @@ const deleteGame = async (request, res) => {
   res.json(`Game: ${id} deleted successfully`);
 };
 
-export { getGames, getGameByID, createGame, deleteGame };
-
+module.exports ={ getGames, getGameByID, createGame, deleteGame };
 
 
 

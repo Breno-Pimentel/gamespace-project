@@ -10,7 +10,6 @@ const pool = new Pool({
   port: process.env.PORT,
   database: process.env.DATABASE2,
 });
-
 const loginUser = async (request, res) => {
   const { email, password } = request.body;
 
