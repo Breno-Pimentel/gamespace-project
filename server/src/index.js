@@ -2,8 +2,10 @@ const express = require("express");
 const axios = require("axios");
 const routes = require("./routes/routes.js");
 const app = express();
+const cors=require("cors");
 
 // Middlewares
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
