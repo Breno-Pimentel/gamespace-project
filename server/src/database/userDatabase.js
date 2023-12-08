@@ -1,71 +1,3 @@
-const { Pool } = require("pg");
-const path = require("path");
-const dotenv = require("dotenv");
-
-dotenv.config({ path: path.join(__dirname, "../.env") });
-
-const dbPool = new Pool({
-  user: process.env.USER,
-  host: process.env.HOST,
-  port: process.env.PORT,
-  database: process.env.DATABASE1,
-  password: process.env.PASSWORD,
-});
-
-const createDbScript = "CREATE DATABASE IF NOT EXISTS db_login_system";
-const createTBScript = `CREATE TABLE IF NOT EXISTS "users" (
-    "id" SERIAL PRIMARY KEY,
-    "name" VARCHAR(100) NOT NULL,
-    "email" VARCHAR(55) UNIQUE NOT NULL,
-    "password" VARCHAR(100) NOT NULL
-);`;
-
-const startDatabase = async () => {
-  try {
-    const dbExistResult = await dbPool.query(
-      "SELECT datname FROM pg_catalog.pg_database WHERE datname = $1",
-      [process.env.DATABASE1]
-    );
-
-    if (dbExistResult.rowCount === 0) {
-      await dbPool.query(createDbScript);
-      console.info("Database created successfully");
-    }
-
-    const mainPool = new Pool({
-      user: process.env.USER,
-      password: process.env.PASSWORD,
-      host: process.env.HOST,
-      port: process.env.PORT,
-      database: process.env.DATABASE2,
-    });
-
-    const tableExistResult = await mainPool.query(
-      "SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = $1",
-      ["users"]
-    );
-
-    if (tableExistResult.rowCount === 0) {
-      await mainPool.query(createTBScript);
-      console.info("Table created successfully");
-    }
-  } catch (error) {
-    console.error("Error", error);
-  }
-};
-
-module.exports = { dbPool, startDatabase, createGamesTable, createGamespaceTable };
-
-
-
-
-
-
-
-
-
-
-/*
 //Importando classes
 const { Pool } = require("pg");
 const path = require("path");
@@ -128,4 +60,3 @@ startDatabase();
 
 //exportando o metodo pool para fora do arquivo
 module.exports = { pool, startDatabase };
-*/
