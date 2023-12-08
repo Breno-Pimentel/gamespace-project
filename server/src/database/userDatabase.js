@@ -1,5 +1,5 @@
 const { Pool } = require("pg");
-const path = require("path"); // Importe o módulo path
+const path = require("path");
 const dotenv = require("dotenv");
 
 dotenv.config({ path: path.join(__dirname, "../.env") });
@@ -54,9 +54,8 @@ const startDatabase = async () => {
   }
 };
 
-startDatabase();
+module.exports = { dbPool, startDatabase, createGamesTable, createGamespaceTable };
 
-module.exports = { dbPool, startDatabase };
 
 
 

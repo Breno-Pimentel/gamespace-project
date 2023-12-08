@@ -16,9 +16,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // Importação das funções relacionadas ao banco de dados
-const startDatabase = require("./database/userDatabase");
-const createGamesTable = require("./database/gamesDatabase");
-const createGamespaceTable = require("./database/gamespaceDatabase");
+const { startDatabase, createGamesTable, createGamespaceTable } = require("./database");
 
 // Rotas
 const routes = require("./routes/routes");
@@ -40,6 +38,7 @@ startDatabase()
   .catch((error) => {
     console.error("Erro ao iniciar o servidor:", error);
   });
+
 
 
 
