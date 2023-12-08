@@ -13,7 +13,7 @@ loginBtn.addEventListener("click", (e) => {
 
   async function login() {
     try {
-      const result = await fetch("http://localhost:3000/auth/login", {
+      const result = await fetch("https://www.prestecinfo.com.br:3000/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -24,7 +24,7 @@ loginBtn.addEventListener("click", (e) => {
         .then((data) => {
           const id = data.id;
           if (data.msg === "Autenticação realizada com sucesso") {
-            window.location.replace(`http://localhost:5500/client/dashboard.html`);
+            window.location.replace(`https://www.prestecinfo.com.br:5500/client/dashboard.html`);
             
           }
         });
