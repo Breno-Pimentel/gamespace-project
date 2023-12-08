@@ -6,7 +6,7 @@ require("dotenv").config({ override: true });
 const startDatabase = require("./database/userDatabase");
 const createGamesTable = require("./database/gamesDatabase");
 const createGamespaceTable = require("./database/gamespaceDatabase");
-//middlewares - faz referencias a funcoes que são passadas antes da rota
+
 //middlewares - faz referencias a funcoes que são passadas antes da rota
 app.use(cors({
   origins: ["http://localhost", "https://localhost"],
