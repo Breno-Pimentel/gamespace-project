@@ -1,3 +1,80 @@
+// Importando classes
+const { Pool } = require("pg");
+const dotenv = require("dotenv");
+
+// Configuração do dotenv para carregar as variáveis de ambiente do arquivo .env
+dotenv.config({ path: path.join(__dirname, "../.env") });
+
+// Pool inicial para criar o banco de dados
+const dbPool = new Pool({
+  user: process.env.USER,
+  host: process.env.HOST,
+  port: process.env.PORT,
+  database: process.env.DATABASE1,
+  password: process.env.PASSWORD,
+});
+
+// Scripts do banco de dados
+const createDbScript = "CREATE DATABASE IF NOT EXISTS db_login_system";
+const createTBScript = `CREATE TABLE IF NOT EXISTS "users" (
+    "id" SERIAL PRIMARY KEY,
+    "name" VARCHAR(100) NOT NULL,
+    "email" VARCHAR(55) UNIQUE NOT NULL,
+    "password" VARCHAR(100) NOT NULL
+);`;
+
+// Função que cria o banco de dados e a tabela do projeto (utilizando verificações de existência)
+const startDatabase = async () => {
+  try {
+    // Verificar a existência do banco de dados
+    const dbExistResult = await dbPool.query(
+      "SELECT datname FROM pg_catalog.pg_database WHERE datname = $1",
+      [process.env.DATABASE1]
+    );
+
+    if (dbExistResult.rowCount === 0) {
+      await dbPool.query(createDbScript);
+      console.info("Database created successfully");
+    }
+
+    // Pool principal, que se conecta ao banco de dados de usuários
+    const mainPool = new Pool({
+      user: process.env.USER,
+      password: process.env.PASSWORD,
+      host: process.env.HOST,
+      port: process.env.PORT,
+      database: process.env.DATABASE2,
+    });
+
+    // Verificar a existência da tabela 'users'
+    const tableExistResult = await mainPool.query(
+      "SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = $1",
+      ["users"]
+    );
+
+    if (tableExistResult.rowCount === 0) {
+      await mainPool.query(createTBScript);
+      console.info("Table created successfully");
+    }
+  } catch (error) {
+    console.error("Error", error);
+  }
+};
+
+// Execução da função startDatabase
+startDatabase();
+
+// Exportando o pool do banco de dados e a função startDatabase para uso em outros arquivos
+module.exports = { dbPool, startDatabase };
+
+
+
+
+
+
+
+
+/*
 //Importando classes
 const { Pool } = require("pg");
 const path = require("path");
@@ -60,3 +137,4 @@ startDatabase();
 
 //exportando o metodo pool para fora do arquivo
 module.exports = { pool, startDatabase };
+*/
