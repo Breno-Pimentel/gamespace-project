@@ -5,7 +5,7 @@ const passwordInput = document.getElementById("password");
 loginBtn.addEventListener("click", (e) => {
   e.preventDefault();
   console.log("Redirecionando...");
-
+// funciona Brasil!!!!
   const data = {
     email: email.value,
     password: password.value,
