@@ -93,7 +93,7 @@ router.get("/game/:id", getGameByID);
 router.post("/upload", upload.single("img"), (req, res) => {
   // Lógica para tratar o upload da imagem
   res.json({ message: "Image uploaded successfully", filename: req.file.filename });
-});
+}), cre;
 router.post("/create/game", createGame);
 
 // Rotas Privadas
