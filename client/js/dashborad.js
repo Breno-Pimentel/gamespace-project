@@ -60,7 +60,7 @@ createGame.addEventListener("click", (e) => {
       resource: resource.value,
       gameStatus: gameStatus.value,
     };
-
+// Meu povo e minha pova!!
     try {
       const result = await fetch("http://localhost:3000/create/game", {
         method: "POST",
