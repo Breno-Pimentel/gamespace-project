@@ -63,31 +63,6 @@ startDatabase();
 module.exports = { mainPool };
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*
 
 //Importando classes
