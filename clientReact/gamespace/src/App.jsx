@@ -1,11 +1,29 @@
+import React from 'react';
 import './App.css';
+
+// Import das imagens
+import logo from './assets/imgs/logo.svg';
+import logoMobile from './assets/imgs/logo-mobile-2.svg';
+import xboxImage from './assets/imgs/Xbox.svg';
+import steamImage from './assets/imgs/Steam Circled.svg';
+import playstationImage from './assets/imgs/PlayStation.svg';
+import windowsImage from './assets/imgs/Windows 10.svg';
+import arrowImage from './assets/imgs/Thick Arrow Pointing Down.svg';
+import dashboardImage from './assets/imgs/initial-dashboard.svg';
+import searchImage from './assets/imgs/search-page.svg';
+import dashboardAreaImage from './assets/imgs/dashboard area 2.svg';
+import rectangle112Image from './assets/imgs/Rectangle 112.png';
+import rectangle113Image from './assets/imgs/Rectangle 113.png';
+import rectangle139Image from './assets/imgs/Rectangle 139.png';
+import rectangle140Image from './assets/imgs/Rectangle 140.png';
+import image13Image from './assets/imgs/image 13.png';
 
 function App() {
   return (
     <>
       <header id="navigation-header">
-        <img src="./assets/imgs/logo.svg" alt="Logo" id="logo" />
-        <img src="./assets/imgs/logo-mobile-2.svg" alt="" id="logo-mobile" />
+        <img src={logo} alt="Logo" id="logo" />
+        <img src={logoMobile} alt="" id="logo-mobile" />
         <a href="login.html" id="login-btn">
           Entrar
         </a>
@@ -13,27 +31,27 @@ function App() {
       <main id="main-content">
         <section className="first-section">
           <h1>OS SEUS JOGOS EM UM ÚNICO ESPAÇO</h1>
-          <ul className="platformsLogos">
+          <ul className="plataformsLogos">
             <li>
-              <img src="./assets/imgs/Xbox.svg" alt="" />
+              <img src={xboxImage} alt="" />
             </li>
             <li>
-              <img src="./assets/imgs/Steam Circled.svg" alt="" />
+              <img src={steamImage} alt="" />
             </li>
             <li>
-              <img src="./assets/imgs/PlayStation.svg" alt="" />
+              <img src={playstationImage} alt="" />
             </li>
             <li>
-              <img src="./assets/imgs/Windows 10.svg" alt="" />
+              <img src={windowsImage} alt="" />
             </li>
           </ul>
         </section>
         <div className="lookDown">
-          <img src="./assets/imgs/Thick Arrow Pointing Down.svg" alt="" />
+          <img src={arrowImage} alt="" />
         </div>
         <section className="second-section">
           <div className="apresentation-image">
-            <img src="./assets/imgs/initial-dashboard.svg" alt="" />
+            <img src={dashboardImage} alt="" />
           </div>
           <div className="apresentation-text">
             <h2>Desenvolvido para otimizar</h2>
@@ -45,7 +63,7 @@ function App() {
         </section>
         <section className="third-section">
           <div className="apresentation-image">
-            <img src="./assets/imgs/search-page.svg" alt="" />
+            <img src={searchImage} alt="" />
           </div>
           <div className="apresentation-text">
             <h2 style={{ color: '#fff' }}>Mergulhe em nosso catálogo</h2>
@@ -57,7 +75,7 @@ function App() {
         </section>
         <section className="fourth-section">
           <div className="apresentation-image">
-            <img src="./assets/imgs/dashboard area 2.svg" alt="" />
+            <img src={dashboardAreaImage} alt="" />
           </div>
           <div className="apresentation-text">
             <h2 style={{ color: 'black' }}>Desenvolvido para se conectar</h2>
@@ -76,19 +94,19 @@ function App() {
           </p>
           <ul className="last-section-games-bar">
             <li>
-              <img src="./assets/imgs/Rectangle 112.png" alt="" />
+              <img src={rectangle112Image} alt="" />
             </li>
             <li>
-              <img src="./assets/imgs/Rectangle 113.png" alt="" />
+              <img src={rectangle113Image} alt="" />
             </li>
             <li>
-              <img src="./assets/imgs/Rectangle 139.png" alt="" />
+              <img src={rectangle139Image} alt="" />
             </li>
             <li>
-              <img src="./assets/imgs/Rectangle 140.png" alt="" />
+              <img src={rectangle140Image} alt="" />
             </li>
             <li>
-              <img src="./assets/imgs/image 13.png" alt="" />
+              <img src={image13Image} alt="" />
             </li>
           </ul>
         </section>
