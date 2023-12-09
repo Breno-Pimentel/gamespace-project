@@ -8,7 +8,7 @@ const emailInput = document.getElementById("email");
 const passwordInput = document.getElementById("password");
 const passwordConfirm = document.getElementById("#passsword-isEquals");
 const spans = document.querySelectorAll(".span-required");
-
+// #
 //##################################
 //         FUNÇOES E EVENTOS
 //##################################
@@ -24,7 +24,7 @@ btn.addEventListener("click", function (e) {
   };
   //Constante que armazena a função assincrona de fetch
   const fetchAPI = async () => {
-    const result = await fetch("http://localhost:3000/auth/register", {
+    const result = await fetch("http://www.prestecinfo.com.br:3000/auth/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -36,7 +36,8 @@ btn.addEventListener("click", function (e) {
   };
   fetchAPI();
 
-  window.location.replace(`http://localhost:5500/client/login.html`);
-
+window.location.replace(`http://www.prestecinfo.com.br/login.html`);
+// REC BTN
   //Execução do Fetch(Busca)
 });
+//#RqO
