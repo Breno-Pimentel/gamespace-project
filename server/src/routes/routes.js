@@ -1,7 +1,7 @@
 // routes.js
 const { Router } = require("express")
 const axios = require("axios")
-const {upload} = require("../middleware/MulterMiddleware.js");
+const upload = require("../middleware/MulterMiddleware.js");
 const{
   getUsers,
   createUser,
@@ -25,7 +25,7 @@ router.get("/game/:id", getGameByID);
 router.post("/upload", upload.single("img"), (req, res) => {
   // Lógica para tratar o upload da imagem
   res.json({ message: "Image uploaded successfully", filename: req.file.filename });
-});
+}), createGame;
 
 // Rotas Privadas
 router.get("/user/:id", async (req, res) => {
