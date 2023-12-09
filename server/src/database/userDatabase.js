@@ -151,5 +151,9 @@ const startDatabase = async () => {
 startDatabase();
 
 //exportando o metodo pool para fora do arquivo
+<<<<<<< HEAD
 module.exports = { pool, startDatabase };
 */
+=======
+module.exports = { pool, startDatabase };
+>>>>>>> 39b35bb4b7e77ba08e42d8205ec52c6f38168d08
