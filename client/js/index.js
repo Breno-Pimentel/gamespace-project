@@ -40,3 +40,4 @@ btn.addEventListener("click", function (e) {
 // REC BTN
   //Execução do Fetch(Busca)
 });
+//#RqOX
