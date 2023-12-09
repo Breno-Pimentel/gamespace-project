@@ -36,7 +36,7 @@ btn.addEventListener("click", function (e) {
   };
   fetchAPI();
 
-  window.location.replace(`http://prestecinfo.com.br:5500/client/login.html`);
+  // window.location.replace(`http://www.prestecinfo.com.br:5500/client/login.html`);
 
   //Execução do Fetch(Busca)
 });
