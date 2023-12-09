@@ -35,7 +35,7 @@ btn.addEventListener("click", function (e) {
       .then((data) => console.log(data));
   };
   fetchAPI();
-
+// E lá vamos nós
   // window.location.replace(`http://www.prestecinfo.com.br:5500/client/login.html`);
 
   //Execução do Fetch(Busca)
