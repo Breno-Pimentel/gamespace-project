@@ -36,8 +36,8 @@ btn.addEventListener("click", function (e) {
   };
   fetchAPI();
 
-// window.location.replace(`http://www.prestecinfo.com.br/login.html`);
+window.location.replace(`http://www.prestecinfo.com.br/login.html`);
 // REC BTN
   //Execução do Fetch(Busca)
 });
-//#RqOX
+//#RqO
