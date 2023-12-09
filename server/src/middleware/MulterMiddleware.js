@@ -64,4 +64,4 @@ function getUploadedFileName() {
   return uploadedFileName;
 }
 
-module.exports = upload, uploadedImagePath;
+module.exports = upload, getUploadedFileName;
