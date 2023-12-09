@@ -1,35 +1,103 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
+      <header id="navigation-header">
+        <img src="./assets/imgs/logo.svg" alt="Logo" id="logo" />
+        <img src="./assets/imgs/logo-mobile-2.svg" alt="" id="logo-mobile" />
+        <a href="login.html" id="login-btn">
+          Entrar
         </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      </header>
+      <main id="main-content">
+        <section className="first-section">
+          <h1>OS SEUS JOGOS EM UM ÚNICO ESPAÇO</h1>
+          <ul className="platformsLogos">
+            <li>
+              <img src="./assets/imgs/Xbox.svg" alt="" />
+            </li>
+            <li>
+              <img src="./assets/imgs/Steam Circled.svg" alt="" />
+            </li>
+            <li>
+              <img src="./assets/imgs/PlayStation.svg" alt="" />
+            </li>
+            <li>
+              <img src="./assets/imgs/Windows 10.svg" alt="" />
+            </li>
+          </ul>
+        </section>
+        <div className="lookDown">
+          <img src="./assets/imgs/Thick Arrow Pointing Down.svg" alt="" />
+        </div>
+        <section className="second-section">
+          <div className="apresentation-image">
+            <img src="./assets/imgs/initial-dashboard.svg" alt="" />
+          </div>
+          <div className="apresentation-text">
+            <h2>Desenvolvido para otimizar</h2>
+            <p style={{ color: 'black' }}>
+              A plataforma foi desenvolvida para proporcionar facilidade em todas as etapas: descobrir, baixar e jogar. Assim,
+              você entra no seu jogo com menos cliques.
+            </p>
+          </div>
+        </section>
+        <section className="third-section">
+          <div className="apresentation-image">
+            <img src="./assets/imgs/search-page.svg" alt="" />
+          </div>
+          <div className="apresentation-text">
+            <h2 style={{ color: '#fff' }}>Mergulhe em nosso catálogo</h2>
+            <p style={{ color: '#fff' }}>
+              Com uma ampla variedade de títulos emocionantes, convidamos você a mergulhar em nosso catálogo e descobrir experiências
+              de jogo inigualáveis que se encaixam perfeitamente em seu estilo.
+            </p>
+          </div>
+        </section>
+        <section className="fourth-section">
+          <div className="apresentation-image">
+            <img src="./assets/imgs/dashboard area 2.svg" alt="" />
+          </div>
+          <div className="apresentation-text">
+            <h2 style={{ color: 'black' }}>Desenvolvido para se conectar</h2>
+            <p style={{ color: 'black' }}>
+              Encontre jogadores com interesses semelhantes em nosso site, criado para se conectar a comunidade gamer.
+            </p>
+          </div>
+        </section>
+        <section className="fifth-section">
+          {/* Deixe em branco ou remova se não houver conteúdo */}
+        </section>
+        <section className="last-section">
+          <h1 style={{ color: '#fff' }}>Explore novos e antigos jogos em nosso catálogo</h1>
+          <p style={{ color: '#fff' }}>
+            Explore um amplo catálogo em constante crescimento, que abrange desde os clássicos indie até os grandes sucessos
+          </p>
+          <ul className="last-section-games-bar">
+            <li>
+              <img src="./assets/imgs/Rectangle 112.png" alt="" />
+            </li>
+            <li>
+              <img src="./assets/imgs/Rectangle 113.png" alt="" />
+            </li>
+            <li>
+              <img src="./assets/imgs/Rectangle 139.png" alt="" />
+            </li>
+            <li>
+              <img src="./assets/imgs/Rectangle 140.png" alt="" />
+            </li>
+            <li>
+              <img src="./assets/imgs/image 13.png" alt="" />
+            </li>
+          </ul>
+        </section>
+      </main>
+      <footer style={{ backgroundColor: 'black', color: 'white' }}>
+        <p>© Gamespace. Todos os direitos reservados. </p>
+      </footer>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
