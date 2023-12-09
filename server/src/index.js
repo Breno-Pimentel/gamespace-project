@@ -1,44 +1,25 @@
-const express = require('express');
-const cors = require('cors');
-const routes = require('./routes/routes.js');
+const request = require('request');
+
 const app = express();
 
-// Middlewares
-app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.get('/', (req, res) => {
+  // Declaração da variável "request"
+  let request;
 
-// Rotas
-app.use(routes);
+  // Inicialização da variável "request"
+  request = require('request');
 
-// Interceptor de requisições
-app.interceptors.request.use(
-  (config) => {
-    if (process.env.API_KEY) {
-      config.headers.Authorization = `Bearer ${process.env.API_KEY}`;
+  request('http://example.com', (err, res, body) => {
+    if (err) {
+      res.status(500).send(err);
+    } else {
+      res.send(body);
     }
-    return config;
-  },
-  (error) => {
-    console.error(error);
-    return Promise.reject(error);
-  }
-);
-
-// Interceptor de respostas
-app.interceptors.response.use(
-  (response) => {
-    return response;
-  },
-  (error) => {
-    console.error(error);
-    return Promise.reject(error);
-  }
-);
-
-app.listen(3000, () => {
-  console.log('Server is listening on port 3000');
+  });
 });
+
+app.listen(3000);
+
 
 
 /*
