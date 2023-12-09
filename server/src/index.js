@@ -1,8 +1,7 @@
-const express = require("express");
-const axios = require("axios");
-const routes = require("./routes/routes.js");
+const express = require('express');
+const cors = require('cors');
+const routes = require('./routes/routes.js');
 const app = express();
-const cors=require("cors");
 
 // Middlewares
 app.use(cors());
@@ -12,29 +11,12 @@ app.use(express.urlencoded({ extended: false }));
 // Rotas
 app.use(routes);
 
-// Exemplo de uso do Axios para fazer uma requisição GET
-app.get("/api/users/:id", async (req, res) => {
-  try {
-    // Utilizando Axios para enviar a requisição GET
-    const response = await axios.get(
-      `http://prestecinfo.com.br/users/${req.params.id}`,
-      {
-        headers: {
-          Authorization: `Bearer ${process.env.API_KEY}`,
-        },
-      }
-    );
-    res.json(response.data);
-  } catch (error) {
-    console.error(error);
-    res.status(error.response.status).send(error.response.data);
-  }
-});
-
 // Interceptor de requisições
-axios.interceptors.request.use(
+app.interceptors.request.use(
   (config) => {
-    config.headers.Authorization = `Bearer ${process.env.API_KEY}`;
+    if (process.env.API_KEY) {
+      config.headers.Authorization = `Bearer ${process.env.API_KEY}`;
+    }
     return config;
   },
   (error) => {
@@ -44,7 +26,7 @@ axios.interceptors.request.use(
 );
 
 // Interceptor de respostas
-axios.interceptors.response.use(
+app.interceptors.response.use(
   (response) => {
     return response;
   },
@@ -55,9 +37,8 @@ axios.interceptors.response.use(
 );
 
 app.listen(3000, () => {
-  console.log("Server is listening on port 3000");
+  console.log('Server is listening on port 3000');
 });
-
 
 
 /*
