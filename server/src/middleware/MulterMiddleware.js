@@ -2,7 +2,7 @@
 
 const multer =require("multer");
 const path =require("path");
-const { promises } =require("fs");
+const { promises, fs } =require("fs");
 
 let uploadedImagePath = ''; // Variável para armazenar o caminho da imagem
 
@@ -65,3 +65,5 @@ function getUploadedFileName() {
 }
 
 module.exports = upload, uploadedImagePath;
+
+*/
