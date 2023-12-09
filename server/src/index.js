@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 require("dotenv").config({ override: true });
-const startDatabase = require("./database/userDatabase");
+const {startDatabase} = require("./database/userDatabase");
 const createGamesTable = require("./database/gamesDatabase");
 const createGamespaceTable = require("./database/gamespaceDatabase");
 const{getUploadedImagePath} = require("./middleware/MulterMiddleware");
@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: false }));
 
 //rotas
 app.use(require("./routes/routes"));
-
+startDatabase();
 app.listen(3000);
 console.log("listening on port 3000");
 console.log("Server is running ok");
