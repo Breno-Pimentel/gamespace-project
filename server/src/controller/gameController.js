@@ -270,4 +270,4 @@ const deleteGame = async (request, res) => {
   res.json(`Game: ${id} deleted successfully`);
 };
 
-module.exports = { getGames, getGameByID, createGame, deletGame };
+module.exports = { getGames, getGameByID, createGame, deleteGame };
