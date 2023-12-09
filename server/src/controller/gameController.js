@@ -1,7 +1,7 @@
 // gameController.js
 const { Pool } = require("pg");
-const multer = require("multer");
-const uploadedImagePath  = require("../middleware/MulterMiddleware");
+const multerMiddleware = require("../middleware/MulterMiddleware");
+const {getUploadedFileName } = require('../middleware/MulterMiddleware');
 
 const pool = new Pool({
   user: process.env.USER,
@@ -40,7 +40,9 @@ const createGame = async (request, res) => {
       gameStatus,
       resource,
     } = request.body;
-   const image = uploadedImagePath;
+    
+    // Obtenha o caminho da imagem a partir do middleware
+    const image = `uploads/${getUploadedFileName()}`
 
     if (!name) {
       return res.status(422).json({ msg: "Complete corretamente os campos" });
@@ -63,7 +65,7 @@ const createGame = async (request, res) => {
           language,
           gameStatus,
           resource,
-          image
+          image,
         },
       },
     });
@@ -72,10 +74,11 @@ const createGame = async (request, res) => {
     res.status(500).json({ msg: "Internal Server Error" });
   }
 };
-const deletGame = async (request, res) => {
+
+const deleteGame = async (request, res) => {
   const id = request.params.id;
-  const response = await pool.query("DELET FROM games WHERE id = $1", [id]);
+  const response = await pool.query("DELETE FROM games WHERE id = $1", [id]);
   res.json(`Game: ${id} deleted successfully`);
 };
 
-module.exports = { getGames, getGameByID, createGame, deletGame };
+module.exports = { getGames, getGameByID, createGame, deleteGame };

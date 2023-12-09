@@ -4,7 +4,8 @@ const router = Router();
 const cors = require("cors");
 
 // Importando o middleware de upload
-const upload = require("../middleware/MulterMiddleware");
+const {upload} = require("../middleware/MulterMiddleware");
+const {getUploadedFileName } = require('../middleware/MulterMiddleware');
 
 // Importando as funções da classe Controller
 const {
