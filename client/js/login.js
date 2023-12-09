@@ -24,7 +24,8 @@ loginBtn.addEventListener("click", (e) => {
         .then((data) => {
           const id = data.id;
           if (data.msg === "Autenticação realizada com sucesso") {
-            window.location.replace(`http://www.prestecinfo.com.br:5500/dashboard.html`);
+           
+            window.location.replace(`http://www.prestecinfo.com.br/dashboard.html`);
             
           }
         });
