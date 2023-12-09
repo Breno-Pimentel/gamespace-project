@@ -2,7 +2,7 @@
 
 const multer =require("multer");
 const path =require("path");
-const { promises, fs } =require("fs");
+const fs =require("fs");
 
 let uploadedImagePath = ''; // Variável para armazenar o caminho da imagem
 
