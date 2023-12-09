@@ -62,7 +62,7 @@ createGame.addEventListener("click", (e) => {
     };
 
     try {
-      const result = await fetch("http://localhost:3000/create/game", {
+      const result = await fetch("http://127.0.0.1:3000/create/game", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
