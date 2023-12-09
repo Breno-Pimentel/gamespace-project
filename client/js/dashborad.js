@@ -34,7 +34,7 @@ createGame.addEventListener("click", (e) => {
     formData.append("img", imageGame.files[0]);
 
     try {
-      const result = await fetch("http://localhost:3000/upload", {
+      const result = await fetch("http://127.0.0.1:3000/upload", {
         method: "POST",
         body: formData,
       })

@@ -24,7 +24,7 @@ loginBtn.addEventListener("click", (e) => {
         .then((data) => {
           const id = data.id;
           if (data.msg === "Autenticação realizada com sucesso") {
-            window.location.replace(`http://127.0.0.1:5500/client/dashboard.html`);
+            window.location.replace(`http://127.0.0.1:5500/dashboard.html`);
             
           }
         });

@@ -36,7 +36,7 @@ btn.addEventListener("click", function (e) {
   };
   fetchAPI();
 
-  window.location.replace(`http://127.0.0.1:5500/client/login.html`);
+  window.location.replace(`http://127.0.0.1:5500/login.html`);
 
   //Execução do Fetch(Busca)
 });
