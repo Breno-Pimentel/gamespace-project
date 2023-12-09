@@ -12,7 +12,6 @@ const storage = multer.diskStorage({
     cb(null, fileName);
   },
 });
-
 const upload = multer({ storage: storage });
 
 // Função que retorna o nome do arquivo
