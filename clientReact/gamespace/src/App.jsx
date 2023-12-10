@@ -29,7 +29,7 @@ function App() {
       </header>
       <main id="main-content">
         <section className="first-section">
-          <h1>OS SEUS JOGOS EM UM ÚNICO ESPAÇO</h1>
+          <h1>OS SEUS JOGOS EM UM ÚNICO ESPAÇOS</h1>
           <ul className="plataformsLogos">
             <li>
               <img src={xboxImage} alt="" />
