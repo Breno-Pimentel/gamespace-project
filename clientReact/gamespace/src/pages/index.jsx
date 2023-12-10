@@ -24,7 +24,7 @@ export function index() {
       <header id="navigation-header">
         <img src={logo} alt="Logo" id="logo" />
         <img src={logoMobile} alt="" id="logo-mobile" />
-        <Link to="/login" id="login-btn" >Entrar</Link>
+        <Link to="/login" id="login-btn">Entrar</Link>
       </header>
       <main id="main-content">
         <section className="first-section">
