@@ -16,7 +16,8 @@ import rectangle140Image from "../assets/imgs/Rectangle 140.png";
 import image13Image from "../assets/imgs/image 13.png";
 import "../App.css";
 
-function Home() {
+
+export function Home() {
   return (
     <>
       <header id="navigation-header">
