@@ -1,4 +1,5 @@
-import './assets/css/style.css';
+import '../App.css'
+
 
 export function loginPage() {
   return (

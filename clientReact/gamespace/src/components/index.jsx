@@ -1,23 +1,22 @@
-import './App.css';
-
+import '../App.css';
 // Import das imagens
-import logo from './assets/imgs/logo.svg';
-import logoMobile from './assets/imgs/logo-mobile-2.svg';
-import xboxImage from './assets/imgs/Xbox.svg';
-import steamImage from './assets/imgs/Steam Circled.svg';
-import playstationImage from './assets/imgs/PlayStation.svg';
-import windowsImage from './assets/imgs/Windows 10.svg';
-import arrowImage from './assets/imgs/Thick Arrow Pointing Down.svg';
-import dashboardImage from './assets/imgs/initial-dashboard.svg';
-import searchImage from './assets/imgs/search-page.svg';
-import dashboardAreaImage from './assets/imgs/dashboard area 2.svg';
-import rectangle112Image from './assets/imgs/Rectangle 112.png';
-import rectangle113Image from './assets/imgs/Rectangle 113.png';
-import rectangle139Image from './assets/imgs/Rectangle 139.png';
-import rectangle140Image from './assets/imgs/Rectangle 140.png';
-import image13Image from './assets/imgs/image 13.png';
+import logo from '../assets/imgs/logo.svg';
+import logoMobile from '../assets/imgs/logo-mobile-2.svg';
+import xboxImage from '../assets/imgs/Xbox.svg';
+import steamImage from '../assets/imgs/Steam Circled.svg';
+import playstationImage from '../assets/imgs/PlayStation.svg';
+import windowsImage from '../assets/imgs/Windows 10.svg';
+import arrowImage from '../assets/imgs/Thick Arrow Pointing Down.svg';
+import dashboardImage from '../assets/imgs/initial-dashboard.svg';
+import searchImage from '../assets/imgs/search-page.svg';
+import dashboardAreaImage from '../assets/imgs/dashboard area 2.svg';
+import rectangle112Image from '../assets/imgs/Rectangle 112.png';
+import rectangle113Image from '../assets/imgs/Rectangle 113.png';
+import rectangle139Image from '../assets/imgs/Rectangle 139.png';
+import rectangle140Image from '../assets/imgs/Rectangle 140.png';
+import image13Image from '../assets/imgs/image 13.png';
 
-export function index() {
+export function Index() {
   return (
     <>
       <header id="navigation-header">
@@ -29,7 +28,7 @@ export function index() {
       </header>
       <main id="main-content">
         <section className="first-section">
-          <h1>OS SEUS JOGOS EM UM ÚNICO ESPAÇOS</h1>
+          <h1>OS SEUS JOGOS EM UM ÚNICO ESPAÇO</h1>
           <ul className="plataformsLogos">
             <li>
               <img src={xboxImage} alt="" />
@@ -117,4 +116,4 @@ export function index() {
   );
 }
 
-export default index;
+export default Index;
