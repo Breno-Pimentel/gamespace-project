@@ -1,4 +1,6 @@
 import '../App.css';
+import { Link } from "react-router-dom";
+
 // Import das imagens
 import logo from '../assets/imgs/logo.svg';
 import logoMobile from '../assets/imgs/logo-mobile-2.svg';
@@ -22,9 +24,7 @@ export function index() {
       <header id="navigation-header">
         <img src={logo} alt="Logo" id="logo" />
         <img src={logoMobile} alt="" id="logo-mobile" />
-        <a href="login.html" id="login-btn">
-          Entrar
-        </a>
+        <Link to="/login" id="login-btn" >Entrar</Link>
       </header>
       <main id="main-content">
         <section className="first-section">
