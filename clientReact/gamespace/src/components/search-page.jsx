@@ -1,6 +1,5 @@
-import './style.css'; // Importe os estilos CSS relevantes aqui
-
-const SearchPage = () => {
+import "../App.css"
+export const SearchPage = () => {
   return (
     <div>
       <header className="search-page-header">
