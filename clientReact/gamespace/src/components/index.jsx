@@ -16,7 +16,7 @@ import rectangle139Image from '../assets/imgs/Rectangle 139.png';
 import rectangle140Image from '../assets/imgs/Rectangle 140.png';
 import image13Image from '../assets/imgs/image 13.png';
 
-export function Index() {
+export function index() {
   return (
     <>
       <header id="navigation-header">
