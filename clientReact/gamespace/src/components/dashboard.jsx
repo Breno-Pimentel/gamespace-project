@@ -1,6 +1,5 @@
-// import { Link } from "react-router-dom"; // Certifique-se de importar o Link se você estiver usando o React Router
 
-const dashboard = () => {
+function App() {
   return (
     <div className="container">
       <div className="add-game-modal">
@@ -54,13 +53,13 @@ const dashboard = () => {
             <option value="Online">Online</option>
             <option value="Single-player">Single-Player</option>
             <option value="Coop">Coop</option>
-            <option value="Multiplayer">Multiplayer</option>
+            <option value="multiplayer">Multiplayer</option>
           </select>
           <select name="Status" id="status" className="selector-game-options">
             <option value="Default">Selecione o status do jogo</option>
             <option value="Iniciado">Iniciado</option>
-            <option value="10%">10%</option>
-            <option value="20%">20%</option>
+            <option value="Playstation">10%</option>
+            <option value="Windows">20%</option>
             <option value="30%">30%</option>
             <option value="40%">40%</option>
             <option value="50%">50%</option>
@@ -73,11 +72,129 @@ const dashboard = () => {
           <input type="button" name="" id="createGame" value="Criar" />
         </form>
       </div>
-      {/* Adicione mais conteúdo do dashboard aqui */}
+      <div className="existingGameModal">
+        <div className="exitBtnExistingModal">
+          <img src="./assets/imgs/close.svg" alt="" className="exit-logo" />
+        </div>
+        <form className="add-existingGame-form">
+          <h2>Escolha um jogo na lista:</h2>
+          <select name="game-list" id="game-list">
+            <option value="Spider-Man">Spider-Man</option>
+            <option value="Call of Duty">Call of Duty</option>
+            <option value="Bob Esponja">Bob Esponja</option>
+          </select>
+          <input
+            type="button"
+            name="adicionar"
+            id="addGame"
+            value="ADICIONAR JOGO"
+          />
+        </form>
+      </div>
+      <header className="dashboard-header">
+        <div className="logo">
+          <img src="./assets/imgs/logo.svg" alt="" className="desktop-logo" />
+          <img
+            src="./assets/imgs/logo-mobile-2.svg"
+            alt=""
+            className="logo-mobile"
+          />
+        </div>
+        <div className="search-bar">
+          <input type="search" name="Search" id="search-bar" placeholder="Procure aqui seu jogo" />
+        </div>
+        <div className="search-mobile-way">
+          <img src="./assets/imgs/Search.svg" alt="" />
+        </div>
+        <div className="profile">
+          <span className="profile-logo"></span>
+          <p className="welcome"></p>
+          <span className="more-options-logo"></span>
+        </div>
+        <div className="profile-mobile-way">
+          <img src="./assets/imgs/User.svg" alt="" />
+        </div>
+      </header>
+      <div className="dashboard-content">
+        <div className="first-content">
+          <div className="options">
+            <button id="add-game">ADICIONE SEU JOGO</button>
+            <a href="/client/search-page.html">
+              <button id="detailedSearch">MINHA LISTA DE JOGOS</button>
+            </a>
+            <button id="existingGames">ADICIONE JOGO EXISTENTE</button>
+          </div>
+          <div className="game-cover-medium">
+            {/*<img src="" alt="Game Cover Medium" />*/}
+          </div>
+          <span className="selector-dots"></span>
+        </div>
+        <div className="carousel-bar">
+          <p>XBOX</p>
+          <div className="games-bar">
+            <div className="game"></div>
+            <div className="game"></div>
+            <div className="game"></div>
+            <div className="game"></div>
+            <div className="game"></div>
+            <div className="game"></div>
+            <div className="game"></div>
+            <div className="game"></div>
+          </div>
+        </div>
+        <div className="carousel-bar">
+          <p>PLAYSTATION</p>
+          <div className="games-bar">
+            <div className="game"></div>
+            <div className="game"></div>
+            <div className="game"></div>
+            <div className="game"></div>
+            <div className="game"></div>
+            <div className="game"></div>
+            <div className="game"></div>
+            <div className="game"></div>
+            <div className="game"></div>
+          </div>
+        </div>
+        <div className="poster-apresentation">
+          <p>JOGOS COM A MAIOR NOTA</p>
+          <div className="apresentation-wrapper">
+            <div className="game-large-cover"></div>
+            <div className="game-infos">
+              <p className="game-name">lorem</p>
+              <p className="game-gendre">lorem</p>
+              <p className="release-yaer">2012</p>
+              <p className="resource">lorem</p>
+              <p className="language">lorem</p>
+              <div className="stars">******</div>
+            </div>
+          </div>
+        </div>
+        <div className="carousel-bar">
+          <p>PC</p>
+          <div className="games-bar">
+            <div className="game"></div>
+            <div className="game"></div>
+            <div className="game"></div>
+            <div className="game"></div>
+            <div className="game"></div>
+            <div className="game"></div>
+            <div className="game"></div>
+            <div className="game"></div>
+            <div className="game"></div>
+          </div>
+        </div>
+        <div className="recently-added">
+          <p>Adicionados recentemente</p>
+          <div className="recently-added-wrapper">
+            <div className="game-extra-large-cover"></div>
+            <div className="game-extra-large-cover"></div>
+          </div>
+        </div>
+      </div>
       <footer><p>Todos os direitos reservados</p></footer>
     </div>
   );
-};
+}
 
-export default dashboard;
-
+export default App;
