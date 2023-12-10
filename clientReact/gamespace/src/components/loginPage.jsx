@@ -17,9 +17,9 @@ export function loginPage() {
       <main className="login-area">
         <div className="login-area-header">
           <a href="index.html" className="back-to">
-            <img src="./assets/imgs/back-to-logo.svg" alt="" />
+            <img src="../assets/imgs/back-to-logo.svg" alt="" />
           </a>
-          <img src="./assets/imgs/logo-mobile.svg" alt="" className="logo-mobile" />
+          <img src="../assets/imgs/logo-mobile.svg" alt="" className="logo-mobile" />
           <h1>Entre na sua conta</h1>
           <p>Preencha seus dados:</p>
         </div>
@@ -28,14 +28,14 @@ export function loginPage() {
             <label>Inicie a sessão com seus dados:</label>
             <input type="email" id="email" placeholder="E-mail:" required />
             <div className="input-icon">
-              <img src="./assets/imgs/Vector.svg" alt="" />
+              <img src="../assets/imgs/Vector.svg" alt="" />
             </div>
           </div>
           <div className="password-area">
             <label>Senha</label>
             <input type="password" id="password" placeholder="Senha:" required />
             <div className="input-icon">
-              <img src="./assets/imgs/Vector-1.svg" alt="" />
+              <img src="../assets/imgs/Vector-1.svg" alt="" />
             </div>
           </div>
 
