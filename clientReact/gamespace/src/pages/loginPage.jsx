@@ -10,13 +10,13 @@ export function loginPage() {
           <h1>Bem-vindo de volta</h1>
           <p className="subtitle">Acesse sua conta agora mesmo.</p>
         </div>
-        <a href="./register.html" className="btn">
+        <a href="./register" className="btn">
           CRIAR CONTA
         </a>
       </aside>
       <main className="login-area">
         <div className="login-area-header">
-          <a href="index.html" className="back-to">
+          <a href="index" className="back-to">
             <img src="../assets/imgs/back-to-logo.svg" alt="" />
           </a>
           <img src="../assets/imgs/logo-mobile.svg" alt="" className="logo-mobile" />
@@ -44,7 +44,7 @@ export function loginPage() {
         <div className="register-area-button">
           <div className="line"></div>
           <p>Não tem uma conta? Crie agora</p>
-          <a href="register.html" id="register-btn-redirect">
+          <a href="register" id="register-btn-redirect">
             CADASTRE-SE
           </a>
         </div>
