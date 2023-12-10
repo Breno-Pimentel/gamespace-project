@@ -1,4 +1,5 @@
 import '../App.css'
+import { Link } from "react-router-dom";
 
 
 export function loginPage() {
@@ -10,9 +11,9 @@ export function loginPage() {
           <h1>Bem-vindo de volta</h1>
           <p className="subtitle">Acesse sua conta agora mesmo.</p>
         </div>
-        <a href="./register" className="btn">
+        <Link to="/register" className="btn">
           CRIAR CONTA
-        </a>
+        </Link>
       </aside>
       <main className="login-area">
         <div className="login-area-header">
