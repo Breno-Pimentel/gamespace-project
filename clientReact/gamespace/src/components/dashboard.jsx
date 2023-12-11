@@ -108,6 +108,7 @@ const closeModals = () => {
           className="add-game-form"
           method="post"
           encType="multipart/form-data"
+          onSubmit={handleCreateGame}
         >
           <input type="file" name="image" id="image-game-file" onChange={{handleFileChange}}/>
           <input
@@ -179,7 +180,7 @@ const closeModals = () => {
             <option value="90%">90%</option>
             <option value="Zerado">Zerado</option>
           </select>
-          <input type="button" name="" id="createGame" value="Criar" onClick={{handleCreateGame}} />
+          <input type="button" name="" id="createGame" value="Criar" />
         </form>
       </div>
       <div className="existingGameModal">
