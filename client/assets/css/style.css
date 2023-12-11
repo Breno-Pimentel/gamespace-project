@@ -16,6 +16,7 @@ body {
 a {
     text-decoration: none;
     color: inherit;
+    cursor: pointer;
 }
 
 button,
@@ -32,6 +33,107 @@ li {
 }
 
 
+/* ######################################*/
+/*ADM-PAGE */
+/* ######################################*/
+.adm-navigation-header {
+    background-color: black;
+}
+
+.adm-dashboard {
+    background-color: black;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+.plataformForm{
+ background-color: white;  
+ height: 500px; 
+ position: absolute;
+ top: 0;
+ left: 30px;
+ border-radius: 10px;
+}
+#plataformName{
+    background-color: white;
+    border: 1px solid black;
+    padding: 4px;
+}
+#edit{
+    border: none;
+}
+#delete{
+    border: none;
+}
+#CreatePlataform{
+    width: 10em;
+    height: 3em;
+    border-radius: 1em;
+    border: 2px solid #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffff;
+    background-color: black;
+
+}
+
+#options-btn{
+    width: 40px;
+    height: 40px;
+}
+.plataformsRankingStatistic {
+    width: 737px;
+    height: 500px;
+    background-color: white;
+    right: 160px;
+    top: 0;
+    position: absolute;
+    border-radius: 10px;
+}
+
+.plataformsRankingStatistic p {
+    text-align: center;
+    border-bottom: 3px solid black;
+    font-size: 25px;
+}
+
+.plataformsRankingStatistic ul {
+    max-height: 440px;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    gap: 1rem;
+    padding: 10px 10px 10px 10px;
+    overflow-y: auto;
+
+}
+
+.plataformsRankingStatistic li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    border-bottom: 3px solid black;
+    font-size:20px;
+    padding: 10px;
+
+}
+
+#managePlataforms {
+    width: 737px;
+    height: 92px;
+    background-color: white;
+    right: 160px;
+    top: 460px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+}
 
 /* ###################################### */
 /*INDEX*/
