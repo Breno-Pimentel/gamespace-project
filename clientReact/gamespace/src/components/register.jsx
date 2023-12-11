@@ -1,6 +1,5 @@
-import '../App.css';
 import { useState } from 'react';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import logoImg from '../assets/imgs/Component 1.svg';
 import backToLogo from '../assets/imgs/back-to-logo.svg';
 import logoMobile from '../assets/imgs/logo-mobile.svg';
@@ -9,35 +8,34 @@ import userInputImg from '../assets/imgs/user-input.svg';
 import vector1Img from '../assets/imgs/Vector-1.svg';
 
 const Register = () => {
-
   const [formData, setFormData] = useState({
-    email:'', 
+    email: '',
     nome: '',
     senha: '',
-    repetirSenha: ''
-  })
+    repetirSenha: '',
+  });
 
   const handleFormEdit = (event, name) => {
-  
-    setFormData({...formData,
-    [name]:event.target.value})
+    setFormData({
+      ...formData,
+      [name]: event.target.value,
+    });
+  };
 
-  }
-  const handleForm = async (event) =>{
-    try{
-      
-    event.preventDefault();
-    const response = await fetch('http://www.prestecinfo.com.br:3001/auth/register', {
-      method: 'POST',
-      body: JSON.stringify(formData)
-    })
-    const json = await response.json();
-    console.log(response,status)
-    console.log(json)
-    }catch(err){
-      console.error(err)
+  const handleForm = async (event) => {
+    try {
+      event.preventDefault();
+      const response = await fetch('http://www.prestecinfo.com.br:3001/auth/register', {
+        method: 'POST',
+        body: JSON.stringify(formData),
+      });
+      const json = await response.json();
+      console.log(response.status);
+      console.log(json);
+    } catch (err) {
+      console.error(err);
     }
-  }
+  };
 
   return (
     <div className="wrapper">
@@ -62,32 +60,75 @@ const Register = () => {
         </div>
         <form action="#" id="register-form">
           <div className="email-area">
-            <input type="email" id="email" placeholder="E-mail:" required value={formData.email} onChange={(e)=>{handleFormEdit(e, 'email')
-
-            }}/>
+            <input
+              type="email"
+              id="email"
+              name="email" // Adicione o atributo 'name'
+              placeholder="E-mail:"
+              required
+              value={formData.email}
+              onChange={(e) => {
+                handleFormEdit(e, 'email');
+              }}
+            />
             <div className="input-icon">
               <img src={vectorImg} alt="" />
             </div>
           </div>
           <div className="name-area">
-            <input type="text" id="name" placeholder="Digite seu nome:" required value={formData.nome}onChange={(e)=>{handleFormEdit(e, 'nome')}} />
+            <input
+              type="text"
+              id="name"
+              name="nome" // Adicione o atributo 'name'
+              placeholder="Digite seu nome:"
+              required
+              value={formData.nome}
+              onChange={(e) => {
+                handleFormEdit(e, 'nome');
+              }}
+            />
             <div className="input-icon">
               <img src={userInputImg} alt="" />
             </div>
           </div>
           <div className="password-area">
-            <input type="password" id="password" placeholder="Senha:" required value={formData.senha} onChange={(e)=>{handleFormEdit(e, 'senha')}} />
+            <input
+              type="password"
+              id="password"
+              name="senha" // Adicione o atributo 'name'
+              placeholder="Senha:"
+              required
+              value={formData.senha}
+              onChange={(e) => {
+                handleFormEdit(e, 'senha');
+              }}
+            />
             <div className="input-icon">
               <img src={vector1Img} alt="" />
             </div>
           </div>
           <div className="password-area-check">
-            <input type="password" id="password-check" placeholder="Senha:" required value={formData.repetirSenha} onChange={(e)=>{handleFormEdit(e, 'repetirSenha')}} />
+            <input
+              type="password"
+              id="password-check"
+              name="repetirSenha" // Adicione o atributo 'name'
+              placeholder="Repetir Senha:" // Correção: Adicione o texto "Repetir"
+              required
+              value={formData.repetirSenha}
+              onChange={(e) => {
+                handleFormEdit(e, 'repetirSenha');
+              }}
+            />
             <div className="input-icon">
               <img src={vector1Img} alt="" />
             </div>
           </div>
-          <input type="submit" value="CRIAR CONTA" id="register-btn" onClick={handleForm} />
+          <input
+            type="submit"
+            value="CRIAR CONTA"
+            id="register-btn"
+            onClick={handleForm}
+          />
         </form>
       </main>
     </div>
