@@ -8,7 +8,7 @@ const createGamespaceTable = require("./database/gamespaceDatabase");
 
 //middlewares - faz referencias a funcoes que são passadas antes da rota
 app.use(cors({
-  origins: ["http://localhost", "https://localhost"],
+  origins: ["http://www.prestecinfo.com.br", "http://www.prestecinfo.com.br"],
   }));
   app.use(express.json());
   app.use(express.urlencoded({ extended: false }));
@@ -16,8 +16,8 @@ app.use(cors({
 //rotas
 app.use(require("./routes/routes"));
 
-app.listen(3000);
-console.log("listening on port 3000");
+app.listen(3001);
+console.log("listening on port 3001");
 console.log("Server is running ok");
 //Breno é um lindão que joga duro na kofre futuro engenheiro
 //Roque barrigudo

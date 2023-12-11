@@ -21,6 +21,7 @@ const {
   getGameByID,
 } = require("../controller/gameController");
 const loginUser = require("../controller/LoginController");
+const getImageGameByID = require("../controller/imageController")
 
 // Rotas Públicas
 router.get("/users", getUsers);
@@ -35,6 +36,7 @@ router.post("/upload", upload.single("img"), (req, res) => {
   // Lógica para tratar o upload da imagem
   res.json({ message: "Image uploaded successfully", filename: req.file.filename });
 });
+router.get("/getImage:game_image", getImageGameByID);
 router.post("/create/game", createGame);
 
 // Rotas Privadas
