@@ -6,6 +6,8 @@ import imgLogo from "../assets/imgs/logo.svg";
 import imgMobileLogo from "../assets/imgs/logo-mobile-2.svg";
 import imgUser from "../assets/imgs/User.svg";
 
+const Dashboard = () =>{
+  
 const [formData, setFormData] = useState({
   image: null,
   name: '',
@@ -95,7 +97,6 @@ const closeModals = () => {
   addGameModal.style.display = 'none';
   addExistingGameModal.style.display = 'none';
 };
-function Dashboard() {
   return (
     <div className="container">
       <div className="add-game-modal">
@@ -178,7 +179,7 @@ function Dashboard() {
             <option value="90%">90%</option>
             <option value="Zerado">Zerado</option>
           </select>
-          <input type="button" name="" id="createGame" value="Criar" onChange={{handleFormChange}} />
+          <input type="button" name="" id="createGame" value="Criar" onChange={{handleCreateGame}} />
         </form>
       </div>
       <div className="existingGameModal">
