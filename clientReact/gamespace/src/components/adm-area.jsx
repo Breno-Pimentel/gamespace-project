@@ -1,3 +1,6 @@
+// eslint-disable-next-line no-unused-vars
+import React, { useState } from 'react';
+
 function App() {
   // Estado para armazenar o nome da nova plataforma a ser adicionada
   const [plataformName, setPlataformName] = useState('');
@@ -62,4 +65,3 @@ function App() {
 }
 
 export default App;
-
