@@ -76,9 +76,16 @@ const handleCreateGame = async () => {
     } catch (error) {
       console.error('Error creating game:', error);
     }
+
+    
   };
 
   uploadImage();
+};
+
+const handleSubmit = (e) => {
+  e.preventDefault();
+  handleCreateGame();
 };
 
 const openAddGameModal = () => {
@@ -108,7 +115,7 @@ const closeModals = () => {
           className="add-game-form"
           method="post"
           encType="multipart/form-data"
-          onSubmit={handleCreateGame}
+          onSubmit={handleSubmit}
         >
           <input type="file" name="image" id="image-game-file" onChange={{handleFileChange}}/>
           <input
@@ -180,7 +187,7 @@ const closeModals = () => {
             <option value="90%">90%</option>
             <option value="Zerado">Zerado</option>
           </select>
-          <input type="button" name="" id="createGame" value="Criar" />
+          <input type="button" name="" id="createGame" value="Criar"  />
         </form>
       </div>
       <div className="existingGameModal">
