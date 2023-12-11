@@ -27,6 +27,9 @@ const Register = () => {
       event.preventDefault();
       const response = await fetch('http://www.prestecinfo.com.br:3001/auth/register', {
         method: 'POST',
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify(formData),
       });
       const json = await response.json();
