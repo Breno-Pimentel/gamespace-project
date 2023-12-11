@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GameSpace</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="shortcut icon" href="./assets/imgs/logo-icon-nav.png" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <aside>
+        <img src="./assets/imgs/Component 1.svg" alt="Logo" class="logo" />
+        <div class="welcome-register-area">
+          <h1>Bem-vindo ao GameSpace</h1>
+          <p class="subtitle">Crie sua conta agora mesmo.</p>
+        </div>
+        <a href="./login.html" class="btn">ENTRAR</a>
+      </aside>
+      <main class="register-area">
+        <div class="register-area-header">
+          <a href="index.html" class="back-to">
+            <img src="./assets/imgs/back-to-logo.svg" alt="" />
+          </a>
+          <img src="./assets/imgs/logo-mobile.svg" alt="" class="logo-mobile" />
+          <h1>Crie sua conta</h1>
+          <p>Preencha seus dados</p>
+        </div>
+        <form action="#" id="register-form">
+          <div class="email-area">
+            <input type="email" id="email" placeholder="E-mail:" />
+            <div class="input-icon">
+              <img src="./assets/imgs/Vector.svg" alt="" />
+            </div>
+          </div>
+          <div class="name-area">
+            <input type="text" id="name" placeholder="Digite seu nome:" />
+            <div class="input-icon">
+              <img src="./assets/imgs/user-input.svg" alt="" />
+            </div>
+          </div>
+          <div class="password-area">
+            <input type="password" id="password" placeholder="Senha:" />
+            <div class="input-icon">
+              <img src="./assets/imgs/Vector-1.svg" alt="" />
+            </div>
+          </div>
+          <div class="password-area-check">
+            <input type="password" id="password-check" placeholder="Senha:" />
+            <div class="input-icon">
+              <img src="./assets/imgs/Vector-1.svg" alt="" />
+            </div>
+          </div>
+          <input type="submit" value="CRIAR CONTA" id="register-btn" />
+        </form>
+      </main>
+    </div>
+    <script src="./js/index.js"></script>
+  </body>
+</html>

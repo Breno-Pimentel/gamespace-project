@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GameSpace</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="shortcut icon" href="./assets/imgs/logo-icon-nav.png" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <aside>
+        <img src="./assets/imgs/Component 1.svg" alt="Logo" class="logo" />
+        <div class="welcome-login-area">
+          <h1>Bem-vindo de volta</h1>
+          <p class="subtitle">Acesse sua conta agora mesmo.</p>
+        </div>
+        <a href="./register.html" class="btn">CRIAR CONTA</a>
+      </aside>
+      <main class="login-area">
+        <div class="login-area-header">
+          <a href="index.html" class="back-to">
+            <img src="./assets/imgs/back-to-logo.svg" alt="" />
+          </a>
+          <img src="./assets/imgs/logo-mobile.svg" alt="" class="logo-mobile" />
+          <h1>Entre na sua conta</h1>
+          <p>Preencha seus dados:</p>
+        </div>
+        <form action="#">
+          <div class="email-area">
+            <label>Inicie a sessão com seus dados:</label>
+            <input type="email" id="email" placeholder="E-mail:" required />
+            <div class="input-icon">
+              <img src="./assets/imgs/Vector.svg" alt="" />
+            </div>
+          </div>
+          <div class="password-area">
+            <label>Senha</label>
+            <input type="password" id="password" placeholder="Senha:" required />
+            <div class="input-icon">
+              <img src="./assets/imgs/Vector-1.svg" alt="" />
+            </div>
+          </div>
+
+          <input type="submit" value="ENTRAR" id="login-btn" />
+        </form>
+        <div class="register-area-button">
+          <div class="line"></div>
+          <p>Não tem uma conta? Crie agora</p>
+          <a href="register.html" id="register-btn-redirect">CADASTRE-SE</a>
+        </div>
+      </main>
+    </div>
+    <script src="./js/login.js"></script>
+  </body>
+</html>
