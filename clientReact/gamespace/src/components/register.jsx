@@ -22,16 +22,22 @@ const Register = () => {
     });
   };
 
-  const handleForm = async (event) => {
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+
+    // Verifica se algum campo está vazio
+    if (Object.values(formData).some(value => value === '')) {
+      console.error('Por favor, preencha todos os campos.');
+      return;
+    }
+
+    // Verifica se as senhas são iguais
+    if (formData.senha !== formData.repetirSenha) {
+      console.error('As senhas não coincidem.');
+      return;
+    }
+
     try {
-      event.preventDefault();
-
-      // Verificar se algum campo está vazio
-      if (Object.values(formData).some(value => value === '')) {
-        console.error('Por favor, preencha todos os campos.');
-        return;
-      }
-
       const response = await fetch('http://www.prestecinfo.com.br:3001/auth/register', {
         method: 'POST',
         headers: {
@@ -41,10 +47,15 @@ const Register = () => {
       });
 
       const json = await response.json();
-      console.log(response.status);
-      console.log(json);
+
+      // Lida com a resposta da requisição
+      if (response.ok) {
+        console.log('Registro realizado com sucesso:', json);
+      } else {
+        console.error('Erro no registro:', json);
+      }
     } catch (err) {
-      console.error(err);
+      console.error('Erro na conexão:', err);
     }
   };
 
@@ -139,7 +150,7 @@ const Register = () => {
             value="CRIAR CONTA"
             id="register-btn"
             name="criarConta"
-            onClick={handleForm}
+            onClick={handleFormSubmit}
           />
         </form>
       </main>
@@ -148,3 +159,95 @@ const Register = () => {
 };
 
 export default Register;
+/*
+import React, { useState } from 'react';
+
+const FormularioRegistro = () => {
+  const [formData, setFormData] = useState({
+    email: '',
+    nome: '',
+    senha: '',
+    repetirSenha: '',
+  });
+
+  const handleFormEdit = (event, name) => {
+    setFormData({
+      ...formData,
+      [name]: event.target.value,
+    });
+  };
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+
+    // Verifica se algum campo está vazio
+    if (Object.values(formData).some(value => value === '')) {
+      console.error('Por favor, preencha todos os campos.');
+      return;
+    }
+
+    // Verifica se as senhas são iguais
+    if (formData.senha !== formData.repetirSenha) {
+      console.error('As senhas não coincidem.');
+      return;
+    }
+
+    try {
+      const response = await fetch('http://www.prestecinfo.com.br:3001/auth/register', {
+        method: 'POST',
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const json = await response.json();
+
+      // Lida com a resposta da requisição
+      if (response.ok) {
+        console.log('Registro realizado com sucesso:', json);
+      } else {
+        console.error('Erro no registro:', json);
+      }
+    } catch (err) {
+      console.error('Erro na conexão:', err);
+    }
+  };
+
+  return (
+    <form onSubmit={handleFormSubmit}>
+      <input
+        type="email"
+        name="email"
+        placeholder="E-mail"
+        value={formData.email}
+        onChange={e => handleFormEdit(e, 'email')}
+      />
+      <input
+        type="text"
+        name="nome"
+        placeholder="Nome"
+        value={formData.nome}
+        onChange={e => handleFormEdit(e, 'nome')}
+      />
+      <input
+        type="password"
+        name="senha"
+        placeholder="Senha"
+        value={formData.senha}
+        onChange={e => handleFormEdit(e, 'senha')}
+      />
+      <input
+        type="password"
+        name="repetirSenha"
+        placeholder="Repetir Senha"
+        value={formData.repetirSenha}
+        onChange={e => handleFormEdit(e, 'repetirSenha')}
+      />
+      <button type="submit">Registrar</button>
+    </form>
+  );
+};
+
+export default FormularioRegistro;
+*/
