@@ -22,16 +22,22 @@ const Register = () => {
     });
   };
 
-  const handleForm = async (event) => {
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+
+    // Verifica se algum campo está vazio
+    if (Object.values(formData).some(value => value === '')) {
+      console.error('Por favor, preencha todos os campos.');
+      return;
+    }
+
+    // Verifica se as senhas são iguais
+    if (formData.senha !== formData.repetirSenha) {
+      console.error('As senhas não coincidem.');
+      return;
+    }
+
     try {
-      event.preventDefault();
-
-      // Verificar se algum campo está vazio
-      if (Object.values(formData).some(value => value === '')) {
-        console.error('Por favor, preencha todos os campos.');
-        return;
-      }
-
       const response = await fetch('http://www.prestecinfo.com.br:3001/auth/register', {
         method: 'POST',
         headers: {
@@ -41,10 +47,15 @@ const Register = () => {
       });
 
       const json = await response.json();
-      console.log(response.status);
-      console.log(json);
+
+      // Lida com a resposta da requisição
+      if (response.ok) {
+        console.log('Registro realizado com sucesso:', json);
+      } else {
+        console.error('Erro no registro:', json);
+      }
     } catch (err) {
-      console.error(err);
+      console.error('Erro na conexão:', err);
     }
   };
 
@@ -139,7 +150,7 @@ const Register = () => {
             value="CRIAR CONTA"
             id="register-btn"
             name="criarConta"
-            onClick={handleForm}
+            onClick={handleFormSubmit}
           />
         </form>
       </main>
