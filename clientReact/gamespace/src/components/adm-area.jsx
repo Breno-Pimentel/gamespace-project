@@ -1,24 +1,6 @@
-// eslint-disable-next-line no-unused-vars
-import React, { useState } from 'react';
+import './style.css';
 
-function App() {
-  // Estado para armazenar o nome da nova plataforma a ser adicionada
-  const [plataformName, setPlataformName] = useState('');
-  
-  // Lista de plataformas (substitua isso pelos seus dados reais)
-  const [plataforms, setPlataforms] = useState([]);
-
-  // Função para adicionar uma nova plataforma
-  const addPlataform = () => {
-    if (plataformName.trim() === '') {
-      return; // Evita adicionar plataformas em branco
-    }
-
-    const newPlataform = { name: plataformName };
-    setPlataforms([...plataforms, newPlataform]);
-    setPlataformName(''); // Limpa o campo de entrada após a adição
-  };
-
+function AdminDashboard() {
   return (
     <div>
       <header className="adm-navigation-header">
@@ -29,25 +11,23 @@ function App() {
       <main className="adm-dashboard">
         <div className="plataformForm">
           <h1>Adicionar Plataforma</h1>
-          <form onSubmit={(e) => { e.preventDefault(); addPlataform(); }}>
+          <form action="#">
             <input
               type="text"
               name="plataformName"
               id="plataformName"
               placeholder="Nome da Plataforma:"
-              value={plataformName}
-              onChange={(e) => setPlataformName(e.target.value)}
             />
-            <button id="CreatePlataform" type="submit">Adicionar</button>
+            <button id="CreatePlataform">Adicionar</button>
           </form>
         </div>
         <div className="plataformsRankingStatistic">
           <p>Plataformas com mais jogos adicionados</p>
           <ul>
-            {plataforms.map((plataform, index) => (
+            {[...Array(8)].map((_, index) => (
               <li key={index}>
-                <div id="plataformName-item">{plataform.name}</div>
-                <div id="optionsCrud">
+                <div className="plataformName-item">Teste</div>
+                <div className="optionsCrud">
                   <button id="edit">
                     <img src="./assets/imgs/edit.png" alt="" id="options-btn" />
                   </button>
@@ -64,4 +44,4 @@ function App() {
   );
 }
 
-export default App;
+export default AdminDashboard;
