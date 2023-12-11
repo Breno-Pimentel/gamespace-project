@@ -1,11 +1,15 @@
-import './style.css';
+import '../App.css';
+import imgLogo from '../assets/imgs/logo.svg';
+import imgMobileLogo from '../assets/imgs/logo-mobile-2.svg';
+import imgEdit from '../assets/imgs/edit.png';
+import imgDelete from '../assets/imgs/delete.png';
 
 function AdminDashboard() {
   return (
     <div>
       <header className="adm-navigation-header">
-        <img src="./assets/imgs/logo.svg" alt="Logo" id="logo" />
-        <img src="./assets/imgs/logo-mobile-2.svg" alt="" id="logo-mobile" />
+        <img src={imgLogo} alt="Logo" id="logo" />
+        <img src={imgMobileLogo} alt="" id="logo-mobile" />
         <h1>Adminstrador</h1>
       </header>
       <main className="adm-dashboard">
@@ -29,10 +33,10 @@ function AdminDashboard() {
                 <div className="plataformName-item">Teste</div>
                 <div className="optionsCrud">
                   <button id="edit">
-                    <img src="./assets/imgs/edit.png" alt="" id="options-btn" />
+                    <img src={imgEdit} alt="" id="options-btn" />
                   </button>
                   <button id="delete">
-                    <img src="./assets/imgs/delete.png" alt="" id="options-btn" />
+                    <img src={imgDelete} alt="" id="options-btn" />
                   </button>
                 </div>
               </li>

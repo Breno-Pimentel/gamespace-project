@@ -1,11 +1,17 @@
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
+import imgClose from '../assets/imgs/close.svg';
+import imgLogo from '../assets/imgs/logo.svg';
+import imgMobileLogo from '../assets/imgs/logo-mobile-2.svg';
+import imgUser from '../assets/imgs/User.svg';
+
+
 function App() {
   return (
     <div className="container">
       <div className="add-game-modal">
         <div className="exit">
-          <img src="./assets/imgs/close.svg" alt="" className="exit-logo" />
+          <img src={imgClose} alt="" className="exit-logo" />
         </div>
         <form
           action=""
@@ -103,15 +109,15 @@ function App() {
       </div>
       <header className="dashboard-header">
         <div className="logo">
-          <img src="./assets/imgs/logo.svg" alt="" className="desktop-logo" />
+          <img src={imgLogo} alt="" className="desktop-logo" />
           <img
-            src="./assets/imgs/logo-mobile-2.svg"
+            src={imgMobileLogo}
             alt=""
             className="logo-mobile"
           />
         </div>
         <div className="profile-mobile-way">
-          <img src="./assets/imgs/User.svg" alt="" />
+          <img src={imgUser} alt="" />
         </div>
       </header>
       <div className="dashboard-content">

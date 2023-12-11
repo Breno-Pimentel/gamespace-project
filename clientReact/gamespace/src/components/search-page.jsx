@@ -1,11 +1,13 @@
+import imgLogo from '../assets/imgs/logo.svg';
+import imgLogoMobile from '../assets/imgs/logo-mobile-2.svg';
 
-function App() {
+function searchPage() {
   return (
     <div>
       <header className="search-page-header">
         <div className="logo">
-          <img src="./assets/imgs/logo.svg" alt="" className="desktop-logo" />
-          <img src="./assets/imgs/logo-mobile-2.svg" alt="" className="logo-mobile" />
+          <img src={imgLogo} alt="" className="desktop-logo" />
+          <img src={imgLogoMobile} alt="" className="logo-mobile" />
         </div>
       </header>
       <div className="wrapper">
@@ -75,4 +77,4 @@ function App() {
   );
 }
 
-export default App;
+export default searchPage;

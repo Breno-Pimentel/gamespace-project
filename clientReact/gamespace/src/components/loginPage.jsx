@@ -1,12 +1,16 @@
-import '../App.css'
+import '../App.css';
 import { Link } from "react-router-dom";
+import logoImg from '../assets/imgs/Component 1.svg';
+import backToLogo from '../assets/imgs/back-to-logo.svg';
+import logoMobile from '../assets/imgs/logo-mobile.svg';
+import vectorImg from '../assets/imgs/Vector.svg';
+import vector1Img from '../assets/imgs/Vector-1.svg';
 
-
-export function loginPage() {
+export function LoginPage() {
   return (
     <div className="wrapper">
       <aside>
-        <img src="./assets/imgs/Component 1.svg" alt="Logo" className="logo" />
+        <img src={logoImg} alt="Logo" className="logo" />
         <div className="welcome-login-area">
           <h1>Bem-vindo de volta</h1>
           <p className="subtitle">Acesse sua conta agora mesmo.</p>
@@ -18,9 +22,9 @@ export function loginPage() {
       <main className="login-area">
         <div className="login-area-header">
           <a href="index" className="back-to">
-            <img src="../assets/imgs/back-to-logo.svg" alt="" />
+            <img src={backToLogo} alt="" />
           </a>
-          <img src="../assets/imgs/logo-mobile.svg" alt="" className="logo-mobile" />
+          <img src={logoMobile} alt="" className="logo-mobile" />
           <h1>Entre na sua conta</h1>
           <p>Preencha seus dados:</p>
         </div>
@@ -29,14 +33,14 @@ export function loginPage() {
             <label>Inicie a sessão com seus dados:</label>
             <input type="email" id="email" placeholder="E-mail:" required />
             <div className="input-icon">
-              <img src="../assets/imgs/Vector.svg" alt="" />
+              <img src={vectorImg} alt="" />
             </div>
           </div>
           <div className="password-area">
             <label>Senha</label>
             <input type="password" id="password" placeholder="Senha:" required />
             <div className="input-icon">
-              <img src="../assets/imgs/Vector-1.svg" alt="" />
+              <img src={vector1Img} alt="" />
             </div>
           </div>
 
@@ -45,13 +49,13 @@ export function loginPage() {
         <div className="register-area-button">
           <div className="line"></div>
           <p>Não tem uma conta? Crie agora</p>
-          <a href="register" id="register-btn-redirect">
+          <Link to="/register" id="register-btn-redirect">
             CADASTRE-SE
-          </a>
+          </Link>
         </div>
       </main>
     </div>
   );
 }
 
-export default loginPage;
+export default LoginPage;
