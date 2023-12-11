@@ -1,12 +1,56 @@
-import '../App.css';
-import { Link } from "react-router-dom";
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import logoImg from '../assets/imgs/Component 1.svg';
 import backToLogo from '../assets/imgs/back-to-logo.svg';
 import logoMobile from '../assets/imgs/logo-mobile.svg';
 import vectorImg from '../assets/imgs/Vector.svg';
 import vector1Img from '../assets/imgs/Vector-1.svg';
 
-export function LoginPage() {
+const LoginPage = () => {
+  const [formData, setFormData] = useState({
+    email: '',
+    password: '',
+  });
+
+  const handleFormEdit = (event, name) => {
+    setFormData({
+      ...formData,
+      [name]: event.target.value,
+    });
+  };
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+
+    // Verifica se algum campo está vazio
+    if (Object.values(formData).some(value => value === '')) {
+      console.error('Por favor, preencha todos os campos.');
+      return;
+    }
+
+    try {
+      const response = await fetch('http://www.prestecinfo.com.br:3001/auth/login', {
+        method: 'POST',
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const json = await response.json();
+
+      // Lida com a resposta da requisição
+      if (response.ok) {
+        console.log('Login realizado com sucesso:', json);
+        // Adicione aqui o redirecionamento após o login
+      } else {
+        console.error('Erro no login:', json);
+      }
+    } catch (err) {
+      console.error('Erro na conexão:', err);
+    }
+  };
+
   return (
     <div className="wrapper">
       <aside>
@@ -28,17 +72,31 @@ export function LoginPage() {
           <h1>Entre na sua conta</h1>
           <p>Preencha seus dados:</p>
         </div>
-        <form action="#">
+        <form onSubmit={handleFormSubmit}>
           <div className="email-area">
             <label>Inicie a sessão com seus dados:</label>
-            <input type="email" id="email" placeholder="E-mail:" required />
+            <input
+              type="email"
+              id="email"
+              placeholder="E-mail:"
+              required
+              value={formData.email}
+              onChange={(e) => handleFormEdit(e, 'email')}
+            />
             <div className="input-icon">
               <img src={vectorImg} alt="" />
             </div>
           </div>
           <div className="password-area">
             <label>Senha</label>
-            <input type="password" id="password" placeholder="Senha:" required />
+            <input
+              type="password"
+              id="password"
+              placeholder="Senha:"
+              required
+              value={formData.password}
+              onChange={(e) => handleFormEdit(e, 'password')}
+            />
             <div className="input-icon">
               <img src={vector1Img} alt="" />
             </div>
@@ -56,6 +114,6 @@ export function LoginPage() {
       </main>
     </div>
   );
-}
+};
 
 export default LoginPage;
