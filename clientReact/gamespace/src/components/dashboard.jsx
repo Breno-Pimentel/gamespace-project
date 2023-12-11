@@ -1,4 +1,104 @@
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { useState } from 'react';
+import imgClose from '../assets/imgs/close.svg';
+
+function App() {
+  const [addGameModalVisible, setAddGameModalVisible] = useState(false);
+  const [existingGameModalVisible, setExistingGameModalVisible] = useState(false);
+
+  // Função para enviar a foto
+  async function uploadImage(imageFile) {
+    const formData = new FormData();
+    formData.append("img", imageFile);
+
+    try {
+      const response = await fetch("http://www.prestecinfo.com.br:3001/upload", {
+        method: "POST",
+        body: formData,
+      });
+      const data = await response.json();
+      console.log("Image upload result:", data);
+      createGameFetch(); // Depois de enviar a imagem, chama função para enviar os dados
+    } catch (error) {
+      console.error("Error uploading image:", error);
+    }
+  }
+
+  // Função para enviar os dados do jogo
+  async function createGameFetch(gameData) {
+    try {
+      const response = await fetch("http://www.prestecinfo.com.br:3001/create/game", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(gameData),
+      });
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.error("Error creating game:", error);
+    }
+  }
+
+  // Manipulador de evento para o botão de criar jogo
+  const handleCreateGame = (e) => {
+    e.preventDefault();
+    const imageGame = document.getElementById("image-game-file");
+
+    // Coleta os valores dos campos do formulário
+    const gameData = {
+      name: document.getElementById("gameName").value,
+      plataform: document.getElementById("plataform").value,
+      genre: document.getElementById("genre").value,
+      releaseYear: document.getElementById("release").value,
+      language: document.getElementById("language").value,
+      resource: document.getElementById("resource").value,
+      gameStatus: document.getElementById("status").value,
+    };
+
+    uploadImage(imageGame.files[0]);
+    createGameFetch(gameData);
+  };
+
+  return (
+    <div className="container">
+      {/* Modal para adicionar novo jogo */}
+      {addGameModalVisible && (
+        <div className="add-game-modal">
+          {/* Restante do código do modal */}
+          <button onClick={() => setAddGameModalVisible(false)}>
+            <img src={imgClose} alt="Fechar" />
+          </button>
+          <form onSubmit={handleCreateGame}>
+            {/* Campos do formulário */}
+            <input type="button" value="Criar" />
+          </form>
+        </div>
+      )}
+
+      {/* Modal para adicionar jogo existente */}
+      {existingGameModalVisible && (
+        <div className="existingGameModal">
+          {/* Restante do código do modal */}
+          <button onClick={() => setExistingGameModalVisible(false)}>
+            <img src={imgClose} alt="Fechar" />
+          </button>
+          {/* Formulário para jogo existente */}
+        </div>
+      )}
+
+      {/* Restante do componente App */}
+      <button onClick={() => setAddGameModalVisible(true)}>ADICIONE SEU JOGO</button>
+      <button onClick={() => setExistingGameModalVisible(true)}>ADICIONE JOGO EXISTENTE</button>
+    </div>
+  );
+}
+
+export default App;
+
+
+
+/* import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 import imgClose from '../assets/imgs/close.svg';
 import imgLogo from '../assets/imgs/logo.svg';
@@ -132,7 +232,7 @@ function App() {
             <button id="existingGames">ADICIONE JOGO EXISTENTE</button>
           </div>
           <div className="game-cover-medium">
-            {/*<img src="" alt="Game Cover Medium" />*/}
+            {/*<img src="" alt="Game Cover Medium" />*}
           </div>
           <span className="selector-dots"></span>
         </div>
@@ -207,3 +307,4 @@ function App() {
 }
 
 export default App;
+*/
