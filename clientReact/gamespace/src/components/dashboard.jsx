@@ -213,12 +213,12 @@ const closeModals = () => {
       <div className="dashboard-content">
         <div className="first-content">
           <div className="options">
-            <button id="add-game" onChange={openAddGameModal}>ADICIONE SEU JOGO</button>
+            <button id="add-game" onClick={openAddGameModal}>ADICIONE SEU JOGO</button>
             <Link to="/search-page">
               <button id="detailedSearch">MINHA LISTA DE JOGOS</button>
             </Link>
 
-            <button id="existingGames" onChange={openAddExistingGameModal}>ADICIONE JOGO EXISTENTE</button>
+            <button id="existingGames" onClick={openAddExistingGameModal}>ADICIONE JOGO EXISTENTE</button>
           </div>
           <div className="game-cover-medium">
             {/*<img src="" alt="Game Cover Medium" />*/}
