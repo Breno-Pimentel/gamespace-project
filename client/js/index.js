@@ -37,6 +37,7 @@ btn.addEventListener("click", function (e) {
   fetchAPI();
 
 //window.location.replace(`http://www.prestecinfo.com.br/login.html`);
+//teste
 // REC BTN
   //Execução do Fetch(Busca)
 });
