@@ -1,109 +1,106 @@
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
-import { useState } from 'react';
+import { useState } from "react";
 
 import imgClose from "../assets/imgs/close.svg";
 import imgLogo from "../assets/imgs/logo.svg";
 import imgMobileLogo from "../assets/imgs/logo-mobile-2.svg";
 import imgUser from "../assets/imgs/User.svg";
 
-const Dashboard = () =>{
-  
-const [formData, setFormData] = useState({
-  image: null,
-  name: '',
-  platform: 'Default',
-  genre: 'Default',
-  releaseYear: '',
-  language: 'Default',
-  resource: 'Default',
-  status: 'Default',
-});
+const Dashboard = () => {
+  const [formData, setFormData] = useState({
+    image: null,
+    name: "",
+    platform: "Default",
+    genre: "Default",
+    releaseYear: "",
+    language: "Default",
+    resource: "Default",
+    status: "Default",
+  });
 
-const handleFormChange = (e) => {
-  const { name, value } = e.target;
-  setFormData((prevData) => ({ ...prevData, [name]: value }));
-};
-
-const handleFileChange = (e) => {
-  const imageFile = e.target.files[0];
-  setFormData((prevData) => ({ ...prevData, image: imageFile }));
-};
-
-const handleCreateGame = async () => {
-  const apiUrlUpload = 'http://www.prestecinfo.com.br:3001/upload';
-  const apiUrlCreateGame = 'http://www.prestecinfo.com.br:3001/create/game';
-
-  const uploadImage = async () => {
-    const formDataImage = new FormData();
-    formDataImage.append('img', formData.image);
-
-    try {
-      const result = await fetch(apiUrlUpload, {
-        method: 'POST',
-        body: formDataImage,
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          console.log('Image upload result:', data);
-          createGameFetch();
-        });
-    } catch (error) {
-      console.error('Error uploading image:', error);
-    }
+  const handleFormChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  const createGameFetch = async () => {
-    const data = {
-      name: formData.name,
-      platform: formData.platform,
-      genre: formData.genre,
-      releaseYear: formData.releaseYear,
-      language: formData.language,
-      resource: formData.resource,
-      status: formData.status,
+  const handleFileChange = (e) => {
+    const imageFile = e.target.files[0];
+    setFormData((prevData) => ({ ...prevData, image: imageFile }));
+  };
+
+  const handleCreateGame = async () => {
+    const apiUrlUpload = "http://www.prestecinfo.com.br:3001/upload";
+    const apiUrlCreateGame = "http://www.prestecinfo.com.br:3001/create/game";
+
+    const uploadImage = async () => {
+      const formDataImage = new FormData();
+      formDataImage.append("img", formData.image);
+
+      try {
+        const result = await fetch(apiUrlUpload, {
+          method: "POST",
+          body: formDataImage,
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log("Image upload result:", data);
+            createGameFetch();
+          });
+      } catch (error) {
+        console.error("Error uploading image:", error);
+      }
     };
 
-    try {
-      const result = await fetch(apiUrlCreateGame, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      })
-        .then((response) => response.json())
-        .then((data) => console.log(data));
-    } catch (error) {
-      console.error('Error creating game:', error);
-    }
+    const createGameFetch = async () => {
+      const data = {
+        name: formData.name,
+        platform: formData.platform,
+        genre: formData.genre,
+        releaseYear: formData.releaseYear,
+        language: formData.language,
+        resource: formData.resource,
+        status: formData.status,
+      };
 
-    
+      try {
+        const result = await fetch(apiUrlCreateGame, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        })
+          .then((response) => response.json())
+          .then((data) => console.log(data));
+      } catch (error) {
+        console.error("Error creating game:", error);
+      }
+    };
+
+    uploadImage();
   };
 
-  uploadImage();
-};
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await handleCreateGame();
+  };
 
-const handleSubmit = (e) => {
-  e.preventDefault();
-  handleCreateGame();
-};
+  const openAddGameModal = () => {
+    const addGameModal = document.querySelector(".add-game-modal");
+    addGameModal.style.display = "block";
+  };
 
-const openAddGameModal = () => {
-  const addGameModal = document.querySelector('.add-game-modal');
-  addGameModal.style.display = 'block';
-};
+  const openAddExistingGameModal = () => {
+    const addExistingGameModal = document.querySelector(".existingGameModal");
+    addExistingGameModal.style.display = "block";
+  };
 
-const openAddExistingGameModal = () => {
-  const addExistingGameModal = document.querySelector('.existingGameModal');
-  addExistingGameModal.style.display = 'block';
-};
-
-const closeModals = () => {
-  const addGameModal = document.querySelector('.add-game-modal');
-  const addExistingGameModal = document.querySelector('.existingGameModal');
-  addGameModal.style.display = 'none';
-  addExistingGameModal.style.display = 'none';
-};
+  const closeModals = () => {
+    const addGameModal = document.querySelector(".add-game-modal");
+    const addExistingGameModal = document.querySelector(".existingGameModal");
+    addGameModal.style.display = "none";
+    addExistingGameModal.style.display = "none";
+  };
   return (
     <div className="container">
       <div className="add-game-modal">
@@ -117,7 +114,12 @@ const closeModals = () => {
           encType="multipart/form-data"
           onSubmit={handleSubmit}
         >
-          <input type="file" name="image" id="image-game-file" onChange={{handleFileChange}}/>
+          <input
+            type="file"
+            name="image"
+            id="image-game-file"
+            onChange={{ handleFileChange }}
+          />
           <input
             type="text"
             name="name"
@@ -129,7 +131,7 @@ const closeModals = () => {
             name="Plataforma"
             id="plataform"
             className="selector-game-options"
-            onChange={{handleFormChange}}
+            onChange={{ handleFormChange }}
           >
             <option value="Default">Selecione uma Plataforma</option>
             <option value="Xbox">Xbox</option>
@@ -138,7 +140,12 @@ const closeModals = () => {
             <option value="MacOS">MacOS</option>
             <option value="Linux">Linux</option>
           </select>
-          <select name="Genero" id="genre" className="selector-game-options" onChange={{handleFormChange}}>
+          <select
+            name="Genero"
+            id="genre"
+            className="selector-game-options"
+            onChange={{ handleFormChange }}
+          >
             <option value="Default">Selecione um gênero</option>
             <option value="Ação">Ação</option>
             <option value="FPS">FPS</option>
@@ -151,9 +158,14 @@ const closeModals = () => {
             name="release-yaer"
             id="release"
             placeholder="Selecione o ano de lançamento"
-            onChange={{handleFormChange}}
+            onChange={{ handleFormChange }}
           />
-          <select name="idioma" id="language" className="selector-game-options" onChange={{handleFormChange}}>
+          <select
+            name="idioma"
+            id="language"
+            className="selector-game-options"
+            onChange={{ handleFormChange }}
+          >
             <option value="Default">Selecione o idioma</option>
             <option value="Português">Português do Brasil</option>
             <option value="Inglês">Inglês</option>
@@ -165,7 +177,7 @@ const closeModals = () => {
             name="Recurso"
             id="resource"
             className="selector-game-options"
-            onChange={{handleFormChange}}
+            onChange={{ handleFormChange }}
           >
             <option value="Default">Selecione o estilo do jogo</option>
             <option value="Online">Online</option>
@@ -173,7 +185,12 @@ const closeModals = () => {
             <option value="Coop">Coop</option>
             <option value="multiplayer">Multiplayer</option>
           </select>
-          <select name="Status" id="status" className="selector-game-options" onChange={{handleFormChange}}>
+          <select
+            name="Status"
+            id="status"
+            className="selector-game-options"
+            onChange={{ handleFormChange }}
+          >
             <option value="Default">Selecione o status do jogo</option>
             <option value="Iniciado">Iniciado</option>
             <option value="Playstation">10%</option>
@@ -187,7 +204,13 @@ const closeModals = () => {
             <option value="90%">90%</option>
             <option value="Zerado">Zerado</option>
           </select>
-          <input type="button" name="" id="createGame" value="Criar" onClick={handleSubmit} />
+          <input
+            type="button"
+            name=""
+            id="createGame"
+            value="Criar"
+            onClick={handleSubmit}
+          />
         </form>
       </div>
       <div className="existingGameModal">
@@ -221,12 +244,16 @@ const closeModals = () => {
       <div className="dashboard-content">
         <div className="first-content">
           <div className="options">
-            <button id="add-game" onClick={openAddGameModal}>ADICIONE SEU JOGO</button>
+            <button id="add-game" onClick={openAddGameModal}>
+              ADICIONE SEU JOGO
+            </button>
             <Link to="/search-page">
               <button id="detailedSearch">MINHA LISTA DE JOGOS</button>
             </Link>
 
-            <button id="existingGames" onClick={openAddExistingGameModal}>ADICIONE JOGO EXISTENTE</button>
+            <button id="existingGames" onClick={openAddExistingGameModal}>
+              ADICIONE JOGO EXISTENTE
+            </button>
           </div>
           <div className="game-cover-medium">
             {/*<img src="" alt="Game Cover Medium" />*/}
@@ -301,6 +328,6 @@ const closeModals = () => {
       </footer>
     </div>
   );
-}
+};
 
 export default Dashboard;
