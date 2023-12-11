@@ -169,10 +169,10 @@ a#login-btn {
 }
 
 section.first-section {
-    background-image: url("../imgs/Image\ de\ fundo.jpg");
+    background-image: url("../src/assets/imgs/Image\ de\ fundo.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    background-color: yellow;
+    background-color: black;
     width: 100%;
     height: 100vh;
     display: flex;

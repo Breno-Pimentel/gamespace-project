@@ -45,6 +45,8 @@
           // Adicione aqui o redirecionamento após o login
           window.location.replace(`http://62.72.63.83:5173/dashboard`)
         } else {
+          alert("ERRO ao logar")
+          console.log("Login realizado com suces")
           console.error('Erro no login:', json);
         }
       } catch (err) {

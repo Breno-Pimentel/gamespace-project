@@ -24,7 +24,7 @@ btn.addEventListener("click", function (e) {
   };
   //Constante que armazena a função assincrona de fetch
   const fetchAPI = async () => {
-    const result = await fetch("http://www.prestecinfo.com.br:3001/auth/register", {
+    const result = await fetch("http://localhost:3000/auth/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -36,8 +36,7 @@ btn.addEventListener("click", function (e) {
   };
   fetchAPI();
 
- window.location.replace(`http://www.prestecinfo.com.br/login.html`);
-//teste
+window.location.replace(`http://localhost:5500/client/login.html`);
 // REC BTN
   //Execução do Fetch(Busca)
 });
