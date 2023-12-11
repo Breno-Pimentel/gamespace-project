@@ -8,7 +8,7 @@ const createGamespaceTable = require("./database/gamespaceDatabase");
 
 //middlewares - faz referencias a funcoes que são passadas antes da rota
 app.use(cors({
-  origins: ["http://localhost", "https://localhost"],
+  origins: ["http://www.prestecinfo.com.br", "http://www.prestecinfo.com.br"],
   }));
   app.use(express.json());
   app.use(express.urlencoded({ extended: false }));
