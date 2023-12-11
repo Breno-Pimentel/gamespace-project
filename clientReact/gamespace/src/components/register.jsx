@@ -10,8 +10,8 @@ import vector1Img from '../assets/imgs/Vector-1.svg';
 const Register = () => {
   const [formData, setFormData] = useState({
     email: '',
-    nome: '',
-    senha: '',
+    name: '',
+    password: '',
     repetirSenha: '',
   });
 
@@ -90,12 +90,12 @@ const Register = () => {
             <input
               type="text"
               id="name"
-              name="nome"
+              name="name"
               placeholder="Digite seu nome:"
               required
-              value={formData.nome}
+              value={formData.name}
               onChange={(e) => {
-                handleFormEdit(e, 'nome');
+                handleFormEdit(e, 'name');
               }}
             />
             <div className="input-icon">
@@ -106,12 +106,12 @@ const Register = () => {
             <input
               type="password"
               id="password"
-              name="senha"
+              name="password"
               placeholder="Senha:"
               required
-              value={formData.senha}
+              value={formData.password}
               onChange={(e) => {
-                handleFormEdit(e, 'senha');
+                handleFormEdit(e, 'password');
               }}
             />
             <div className="input-icon">
