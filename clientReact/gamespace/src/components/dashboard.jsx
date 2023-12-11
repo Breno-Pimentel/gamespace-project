@@ -187,7 +187,7 @@ const closeModals = () => {
             <option value="90%">90%</option>
             <option value="Zerado">Zerado</option>
           </select>
-          <input type="button" name="" id="createGame" value="Criar"  />
+          <input type="button" name="" id="createGame" value="Criar" onClick={handleSubmit} />
         </form>
       </div>
       <div className="existingGameModal">
