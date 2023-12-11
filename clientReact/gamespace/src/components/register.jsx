@@ -32,7 +32,7 @@ const Register = () => {
     }
 
     // Verifica se as senhas são iguais
-    if (formData.senha !== formData.repetirSenha) {
+    if (formData.password !== formData.repetirSenha) {
       console.error('As senhas não coincidem.');
       return;
     }
