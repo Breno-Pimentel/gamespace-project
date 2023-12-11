@@ -51,6 +51,7 @@ const Register = () => {
       // Lida com a resposta da requisição
       if (response.ok) {
         console.log('Registro realizado com sucesso:', json);
+        window.location.replace(`http://62.72.63.83:5173/login`)
       } else {
         console.error('Erro no registro:', json);
       }
