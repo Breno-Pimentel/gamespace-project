@@ -119,18 +119,21 @@ const Dashboard = () => {
             name="image"
             id="image-game-file"
             onChange={{ handleFileChange }}
+            value={formData.image}
           />
           <input
             type="text"
             name="name"
             id="gameName"
             placeholder="Nome do jogo"
+            value={formData.name}
             onChange={handleFormChange}
           />
           <select
-            name="Plataforma"
+            name="plataform"
             id="plataform"
             className="selector-game-options"
+            value={formData.platform}
             onChange={{ handleFormChange }}
           >
             <option value="Default">Selecione uma Plataforma</option>
@@ -141,9 +144,10 @@ const Dashboard = () => {
             <option value="Linux">Linux</option>
           </select>
           <select
-            name="Genero"
+            name="genre"
             id="genre"
             className="selector-game-options"
+            value={formData.genre}
             onChange={{ handleFormChange }}
           >
             <option value="Default">Selecione um gênero</option>
@@ -155,14 +159,16 @@ const Dashboard = () => {
           </select>
           <input
             type="number"
-            name="release-yaer"
+            name="releaseYaer"
             id="release"
+            value={formData.releaseYear}
             placeholder="Selecione o ano de lançamento"
             onChange={{ handleFormChange }}
           />
           <select
-            name="idioma"
+            name="language"
             id="language"
+            value={formData.language}
             className="selector-game-options"
             onChange={{ handleFormChange }}
           >
@@ -174,8 +180,9 @@ const Dashboard = () => {
             <option value="Italiano">Italiano</option>
           </select>
           <select
-            name="Recurso"
+            name="resource"
             id="resource"
+            value={formData.resource}
             className="selector-game-options"
             onChange={{ handleFormChange }}
           >
@@ -186,8 +193,9 @@ const Dashboard = () => {
             <option value="multiplayer">Multiplayer</option>
           </select>
           <select
-            name="Status"
+            name="status"
             id="status"
+            value={formData.status}
             className="selector-game-options"
             onChange={{ handleFormChange }}
           >
