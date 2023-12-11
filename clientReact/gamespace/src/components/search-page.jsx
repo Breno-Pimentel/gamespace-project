@@ -8,20 +8,6 @@ function App() {
           <img src="./assets/imgs/logo.svg" alt="" className="desktop-logo" />
           <img src="./assets/imgs/logo-mobile-2.svg" alt="" className="logo-mobile" />
         </div>
-        <div className="search-bar">
-          <input type="search" name="Search" id="search-bar" />
-        </div>
-        <div className="search-mobile-way">
-          <img src="./assets/imgs/Search.svg" alt="" />
-        </div>
-        <div className="profile">
-          <span className="profile-logo"></span>
-          <p className="welcome"></p>
-          <span className="more-options-logo"></span>
-        </div>
-        <div className="profile-mobile-way">
-          <img src="./assets/imgs/User.svg" alt="" />
-        </div>
       </header>
       <div className="wrapper">
         <aside className="search-options">
