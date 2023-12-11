@@ -25,6 +25,13 @@ const Register = () => {
   const handleForm = async (event) => {
     try {
       event.preventDefault();
+
+      // Verificar se algum campo está vazio
+      if (Object.values(formData).some(value => value === '')) {
+        console.error('Por favor, preencha todos os campos.');
+        return;
+      }
+
       const response = await fetch('http://www.prestecinfo.com.br:3001/auth/register', {
         method: 'POST',
         headers: {
@@ -32,6 +39,7 @@ const Register = () => {
         },
         body: JSON.stringify(formData),
       });
+
       const json = await response.json();
       console.log(response.status);
       console.log(json);
@@ -66,7 +74,7 @@ const Register = () => {
             <input
               type="email"
               id="email"
-              name="email" // Adicione o atributo 'name'
+              name="email"
               placeholder="E-mail:"
               required
               value={formData.email}
@@ -82,7 +90,7 @@ const Register = () => {
             <input
               type="text"
               id="name"
-              name="nome" // Adicione o atributo 'name'
+              name="nome"
               placeholder="Digite seu nome:"
               required
               value={formData.nome}
@@ -98,7 +106,7 @@ const Register = () => {
             <input
               type="password"
               id="password"
-              name="senha" // Adicione o atributo 'name'
+              name="senha"
               placeholder="Senha:"
               required
               value={formData.senha}
@@ -114,8 +122,8 @@ const Register = () => {
             <input
               type="password"
               id="password-check"
-              name="repetirSenha" // Adicione o atributo 'name'
-              placeholder="Repetir Senha:" // Correção: Adicione o texto "Repetir"
+              name="repetirSenha"
+              placeholder="Repetir Senha:"
               required
               value={formData.repetirSenha}
               onChange={(e) => {
@@ -130,6 +138,7 @@ const Register = () => {
             type="submit"
             value="CRIAR CONTA"
             id="register-btn"
+            name="criarConta"
             onClick={handleForm}
           />
         </form>
