@@ -87,7 +87,7 @@ const Register = () => {
               <img src={vector1Img} alt="" />
             </div>
           </div>
-          <input type="submit" value="CRIAR CONTA" id="register-btn" />
+          <input type="submit" value="CRIAR CONTA" id="register-btn" onClick={handleForm} />
         </form>
       </main>
     </div>
