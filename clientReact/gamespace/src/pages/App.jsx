@@ -3,8 +3,6 @@ import Home from "../components/Home";
 import LoginPage from "../components/loginPage";
 import DashboardPage from "../components/dashboard";
 import Register from "../components/register"
-import SearchPage from "../components/search-page"
-import AdminDashboard from "../components/adm-area";
 
 const App = () => {
   return (
@@ -22,13 +20,7 @@ const App = () => {
         <Route path="/register" exact>
           <Register />
         </Route>
-        <Route path="/search-page" exact>
-          <SearchPage />
-        </Route>
-        <Route path="/adm-area" exact>
-          <AdminDashboard />
-        </Route>
-
+        
       </Switch>
     </Router>
   );
