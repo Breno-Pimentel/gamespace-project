@@ -4,8 +4,8 @@ const multerMiddleware = require("../middleware/MulterMiddleware");
 const {getUploadedFileName } = require('../middleware/MulterMiddleware');
 
 const pool = new Pool({
-  user: process.env.USER,
-  password: process.env.PASSWORD,
+  user: "postgres",
+  password: "postgres",
   host: process.env.HOST,
   port: process.env.PORT,
   database: process.env.DATABASE2,

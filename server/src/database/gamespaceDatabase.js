@@ -2,8 +2,8 @@
 const { Pool } = require("pg");
 
 const pool = new Pool({
-  user: process.env.DB_USER, // Alterado para evitar conflito com a variável USER do sistema
-  password: process.env.PASSWORD,
+  user: "postgres", // Alterado para evitar conflito com a variável USER do sistema
+  password: "postgres",
   host: process.env.HOST,
   port: process.env.PORT,
   database: process.env.DATABASE2,
