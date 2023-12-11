@@ -43,6 +43,7 @@ const LoginPage = () => {
       if (response.ok) {
         console.log('Login realizado com sucesso:', json);
         // Adicione aqui o redirecionamento após o login
+        window.location.replace(`http://62.72.63.83:5173/dashboard`)
       } else {
         console.error('Erro no login:', json);
       }
