@@ -1,113 +1,4 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import imgClose from '../assets/imgs/close.svg';
-import imgLogo from '../assets/imgs/logo.svg';
-import imgMobileLogo from '../assets/imgs/logo-mobile-2.svg';
-import imgUser from '../assets/imgs/User.svg';
-
-function App() {
-  const [addGameModalVisible, setAddGameModalVisible] = useState(false);
-  const [existingGameModalVisible, setExistingGameModalVisible] = useState(false);
-
-  // Restante do seu código
-
-  const handleCreateGame = (e) => {
-    e.preventDefault();
-    const imageGame = document.getElementById("image-game-file");
-
-    // Coleta os valores dos campos do formulário
-    const gameData = {
-      name: document.getElementById("gameName").value,
-      plataform: document.getElementById("plataform").value,
-      genre: document.getElementById("genre").value,
-      releaseYear: document.getElementById("release").value,
-      language: document.getElementById("language").value,
-      resource: document.getElementById("resource").value,
-      gameStatus: document.getElementById("status").value,
-    };
-
-    uploadImage(imageGame.files[0]);
-    createGameFetch(gameData);
-  };
-
-  return (
-    <div className="container">
-      {/* Modal para adicionar novo jogo */}
-      {addGameModalVisible && (
-        <div className="add-game-modal">
-          <div className="exit">
-            <img src={imgClose} alt="" className="exit-logo" />
-          </div>
-          <form
-            action=""
-            className="add-game-form"
-            method="post"
-            encType="multipart/form-data"
-            onSubmit={handleCreateGame}
-          >
-            {/* Campos do formulário */}
-            {/* Restante do código do formulário */}
-            <input type="button" name="" id="createGame" value="Criar" />
-          </form>
-        </div>
-      )}
-
-      {/* Modal para adicionar jogo existente */}
-      {existingGameModalVisible && (
-        <div className="existingGameModal">
-          <div className="exitBtnExistingModal">
-            <img src={imgClose} alt="" className="exit-logo" />
-          </div>
-          <form className="add-existingGame-form">
-            {/* Restante do código do formulário de jogo existente */}
-            <input
-              type="button"
-              name="adicionar"
-              id="addGame"
-              value="ADICIONAR JOGO"
-            />
-          </form>
-        </div>
-      )}
-
-      <header className="dashboard-header">
-        {/* Restante do código do cabeçalho */}
-      </header>
-
-      <div className="dashboard-content">
-        <div className="first-content">
-          <div className="options">
-            <button onClick={() => setAddGameModalVisible(true)}>
-              ADICIONE SEU JOGO
-            </button>
-            <Link to="/search-page">
-              <button id="detailedSearch">MINHA LISTA DE JOGOS</button>
-            </Link>
-            <button onClick={() => setExistingGameModalVisible(true)}>
-              ADICIONE JOGO EXISTENTE
-            </button>
-          </div>
-          <div className="game-cover-medium">
-            {/* Restante do código */}
-          </div>
-          <span className="selector-dots"></span>
-        </div>
-
-        {/* Restante do conteúdo principal */}
-      </div>
-
-      <footer>
-        <p>Todos os direitos reservados</p>
-      </footer>
-    </div>
-  );
-}
-
-export default App;
-
-
-
-/* import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 import imgClose from '../assets/imgs/close.svg';
 import imgLogo from '../assets/imgs/logo.svg';
@@ -115,7 +6,7 @@ import imgMobileLogo from '../assets/imgs/logo-mobile-2.svg';
 import imgUser from '../assets/imgs/User.svg';
 
 
-function App() {
+function Dashboard() {
   return (
     <div className="container">
       <div className="add-game-modal">
@@ -241,7 +132,7 @@ function App() {
             <button id="existingGames">ADICIONE JOGO EXISTENTE</button>
           </div>
           <div className="game-cover-medium">
-            {/*<img src="" alt="Game Cover Medium" />*}
+            {/*<img src="" alt="Game Cover Medium" />*/}
           </div>
           <span className="selector-dots"></span>
         </div>
@@ -315,5 +206,4 @@ function App() {
   );
 }
 
-export default App;
-*/
+export default Dashboard;
