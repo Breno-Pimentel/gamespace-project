@@ -100,7 +100,7 @@ const closeModals = () => {
   return (
     <div className="container">
       <div className="add-game-modal">
-        <div className="exit" onChange={closeModals}>
+        <div className="exit" onClick={closeModals}>
           <img src={imgClose} alt="" className="exit-logo" />
         </div>
         <form
@@ -179,7 +179,7 @@ const closeModals = () => {
             <option value="90%">90%</option>
             <option value="Zerado">Zerado</option>
           </select>
-          <input type="button" name="" id="createGame" value="Criar" onChange={{handleCreateGame}} />
+          <input type="button" name="" id="createGame" value="Criar" onClick={{handleCreateGame}} />
         </form>
       </div>
       <div className="existingGameModal">
