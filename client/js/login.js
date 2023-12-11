@@ -13,7 +13,7 @@ loginBtn.addEventListener("click", (e) => {
 // #
   async function login() {
     try {
-      const result = await fetch("http://www.prestecinfo.com.br:3000/auth/login", {
+      const result = await fetch("http://www.prestecinfo.com.br:3001/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
