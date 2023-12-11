@@ -17,3 +17,6 @@ export const fetchData = () => {
       throw error;
     });
 };
+
+// Se você não estiver usando createRoot em nenhum lugar, pode remover a importação.
+
