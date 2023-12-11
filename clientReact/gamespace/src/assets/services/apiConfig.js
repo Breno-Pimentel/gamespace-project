@@ -1,7 +1,7 @@
 // apiConfig.js
 
 const apiConfig = {
-    baseURL: 'http://localhost:3000', // Substitua pelo endereço real do seu backend
+    baseURL: 'http://www.prestecinfo.com.br:3001', // Substitua pelo endereço real do seu backend
   };
   
   export default apiConfig;

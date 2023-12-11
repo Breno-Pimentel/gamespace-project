@@ -16,8 +16,8 @@ app.use(cors({
 //rotas
 app.use(require("./routes/routes"));
 
-app.listen(3000);
-console.log("listening on port 3000");
+app.listen(3001);
+console.log("listening on port 3001");
 console.log("Server is running ok");
 //Breno é um lindão que joga duro na kofre futuro engenheiro
 //Roque barrigudo
