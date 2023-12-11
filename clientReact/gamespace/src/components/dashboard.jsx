@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 function App() {
   return (
@@ -6,7 +7,12 @@ function App() {
         <div className="exit">
           <img src="./assets/imgs/close.svg" alt="" className="exit-logo" />
         </div>
-        <form action="" className="add-game-form" method="post" encType="multipart/form-data">
+        <form
+          action=""
+          className="add-game-form"
+          method="post"
+          encType="multipart/form-data"
+        >
           <input type="file" name="image" id="image-game-file" />
           <input
             type="text"
@@ -48,7 +54,11 @@ function App() {
             <option value="Alemão">Alemão</option>
             <option value="Italiano">Italiano</option>
           </select>
-          <select name="Recurso" id="resource" className="selector-game-options">
+          <select
+            name="Recurso"
+            id="resource"
+            className="selector-game-options"
+          >
             <option value="Default">Selecione o estilo do jogo</option>
             <option value="Online">Online</option>
             <option value="Single-player">Single-Player</option>
@@ -100,17 +110,6 @@ function App() {
             className="logo-mobile"
           />
         </div>
-        <div className="search-bar">
-          <input type="search" name="Search" id="search-bar" placeholder="Procure aqui seu jogo" />
-        </div>
-        <div className="search-mobile-way">
-          <img src="./assets/imgs/Search.svg" alt="" />
-        </div>
-        <div className="profile">
-          <span className="profile-logo"></span>
-          <p className="welcome"></p>
-          <span className="more-options-logo"></span>
-        </div>
         <div className="profile-mobile-way">
           <img src="./assets/imgs/User.svg" alt="" />
         </div>
@@ -119,9 +118,11 @@ function App() {
         <div className="first-content">
           <div className="options">
             <button id="add-game">ADICIONE SEU JOGO</button>
-            <a href="/client/search-page.html">
-              <button id="detailedSearch">MINHA LISTA DE JOGOS</button>
-            </a>
+            <Link to="/search-page">
+               <button id="detailedSearch">MINHA LISTA DE JOGOS</button>
+            </Link>
+
+           
             <button id="existingGames">ADICIONE JOGO EXISTENTE</button>
           </div>
           <div className="game-cover-medium">
@@ -192,7 +193,9 @@ function App() {
           </div>
         </div>
       </div>
-      <footer><p>Todos os direitos reservados</p></footer>
+      <footer>
+        <p>Todos os direitos reservados</p>
+      </footer>
     </div>
   );
 }
